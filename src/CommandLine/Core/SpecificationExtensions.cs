@@ -59,9 +59,7 @@ namespace CommandLine.Core
 
         public static bool HavingRange(this Specification specification, Func<int, int, bool> predicate)
         {
-            int min;
-            int max;
-            if (specification.Min.MatchJust(out min) && specification.Max.MatchJust(out max))
+            if (specification.Min.MatchJust(out var min) && specification.Max.MatchJust(out var max))
             {
                 return predicate(min, max);
             }
@@ -70,8 +68,7 @@ namespace CommandLine.Core
 
         public static bool HavingMin(this Specification specification, Func<int, bool> predicate)
         {
-            int min;
-            if (specification.Min.MatchJust(out min))
+            if (specification.Min.MatchJust(out var min))
             {
                 return predicate(min);
             }
@@ -80,8 +77,7 @@ namespace CommandLine.Core
 
         public static bool HavingMax(this Specification specification, Func<int, bool> predicate)
         {
-            int max;
-            if (specification.Max.MatchJust(out max))
+            if (specification.Max.MatchJust(out var max))
             {
                 return predicate(max);
             }
