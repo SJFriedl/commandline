@@ -5,7 +5,6 @@ using System.Linq;
 using CommandLine.Tests.Fakes;
 using CommandLine.Text;
 using FluentAssertions;
-using Microsoft.FSharp.Core;
 using Xunit;
 using Xunit.Abstractions;
 

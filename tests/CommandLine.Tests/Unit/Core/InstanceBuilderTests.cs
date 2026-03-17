@@ -1,6 +1,5 @@
 // Copyright 2005-2015 Giacomo Stelluti Scala & Contributors. All rights reserved. See License.md in the project root for license information.
 
-using Microsoft.FSharp.Core;
 using CommandLine.Core;
 using CommandLine.Infrastructure;
 using CommandLine.Tests.Fakes;
