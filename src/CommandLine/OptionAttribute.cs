@@ -61,7 +61,7 @@ namespace CommandLine
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandLine.OptionAttribute"/> class.
         /// </summary>
-        /// <param name="shortName">The short name of the option..</param>
+        /// <param name="shortName">The short name of the option.</param>
         public OptionAttribute(char shortName)
             : this(shortName.ToOneCharString(), string.Empty)
         {

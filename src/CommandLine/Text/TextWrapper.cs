@@ -123,7 +123,7 @@ namespace CommandLine.Text
         /// <returns>The same list as is passed in</returns>
         private static List<StringBuilder> AddWordToLastLineOrCreateNewLineIfNecessary(List<StringBuilder> lines, string word,int columnWidth)
         {
-            //The current indentation level is based on the previous line but we need to be careful
+            //The current indentation level is based on the previous line, but we need to be careful
             var previousLine = lines.LastOrDefault()?.ToString() ??string.Empty;
             
             var wouldWrap = !lines.Any() || (word.Length>0 && previousLine.Length + word.Length > columnWidth);

@@ -10,7 +10,7 @@ using CSharpx;
 namespace CommandLine.Text
 {
     /// <summary>
-    /// Models the heading part of an help text.
+    /// Models the heading part of help text.
     /// You can assign it where you assign any <see cref="System.String"/> instance.
     /// </summary>
     public class HeadingInfo
@@ -47,9 +47,9 @@ namespace CommandLine.Text
         /// <summary>
         /// Gets the default heading instance.
         /// The title is retrieved from <see cref="AssemblyTitleAttribute"/>,
-        /// or the assembly short name if its not defined.
+        /// or the assembly short name if it's not defined.
         /// The version is retrieved from <see cref="AssemblyInformationalVersionAttribute"/>,
-        /// or the assembly version if its not defined.
+        /// or the assembly version if it's not defined.
         /// </summary>
         public static HeadingInfo Default
         {

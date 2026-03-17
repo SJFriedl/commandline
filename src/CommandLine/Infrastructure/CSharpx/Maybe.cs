@@ -21,7 +21,7 @@ namespace CSharpx
     }
 
     /// <summary>
-    /// The Maybe type models an optional value. A value of type Maybe a either contains a value of type a (represented as Just a),
+    /// The Maybe type models an optional value. A value of type Maybe either contains a value of type a (represented as Just a),
     /// or it is empty (represented as Nothing).
     /// </summary>
 #if !CSX_MAYBE_INTERNAL
@@ -148,7 +148,7 @@ namespace CSharpx
 
         #region Functor
         /// <summary>
-        /// Transforms an maybe value by using a specified mapping function.
+        /// Transforms a Maybe value by using a specified mapping function.
         /// </summary>
         public static Maybe<T2> Map<T1, T2>(Maybe<T1> maybe, Func<T1, T2> func)
         {

@@ -16,11 +16,9 @@ using System.Text;
 namespace CommandLine.Text
 {
     /// <summary>
-    /// Provides means to format an help screen.
+    /// Provides means to format a help screen.
     /// You can assign it in place of a <see cref="System.String"/> instance.
     /// </summary>
-
-
 
     public struct ComparableOption
     {
@@ -137,7 +135,7 @@ namespace CommandLine.Text
         /// Initializes a new instance of the <see cref="CommandLine.Text.HelpText"/> class
         /// specifying heading string.
         /// </summary>
-        /// <param name="heading">An heading string or an instance of <see cref="CommandLine.Text.HeadingInfo"/>.</param>
+        /// <param name="heading">A heading string or an instance of <see cref="CommandLine.Text.HeadingInfo"/>.</param>
         /// <exception cref="System.ArgumentException">Thrown when parameter <paramref name="heading"/> is null or empty string.</exception>
         public HelpText(string heading)
             : this(SentenceBuilder.Create(), heading, string.Empty)
@@ -253,7 +251,7 @@ namespace CommandLine.Text
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to add an additional line after the description of the specification.
+        /// Gets or sets a value indicating whether to add a line after the description of the specification.
         /// </summary>
         public bool AdditionalNewLineAfterOption
         {

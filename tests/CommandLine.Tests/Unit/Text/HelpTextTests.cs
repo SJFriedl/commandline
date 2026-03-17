@@ -36,7 +36,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_without_options(bool newlineBetweenSections)
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut =
                 new HelpText(new HeadingInfo("Unit-tests", "2.0"), new CopyrightInfo(true, "Author", 2005, 2013));
             sut.AddNewLineBetweenHelpSections = newlineBetweenSections;
@@ -72,7 +72,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_with_options(bool newlineBetweenSections)
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText { AddDashesToOption = true, AddNewLineBetweenHelpSections = newlineBetweenSections }
                 .AddPreOptionsLine("pre-options")
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(Simple_Options)), Enumerable.Empty<Error>()))
@@ -103,7 +103,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_with_enum_options_enabled()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText { AddDashesToOption = true, AddEnumValuesToHelpText = true, MaximumDisplayWidth = 80 }
                 .AddPreOptionsLine("pre-options")
                 .AddOptions(new NotParsed<Options_With_Enum_Having_HelpText>(TypeInfo.Create(typeof(Options_With_Enum_Having_HelpText)), Enumerable.Empty<Error>()))
@@ -126,7 +126,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_with_enum_options_disabled()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText { AddDashesToOption = true }
                 .AddPreOptionsLine("pre-options")
                 .AddOptions(new NotParsed<Options_With_Enum_Having_HelpText>(TypeInfo.Create(typeof(Options_With_Enum_Having_HelpText)), Enumerable.Empty<Error>()))
@@ -148,7 +148,7 @@ namespace CommandLine.Tests.Unit.Text
         public void When_defined_MetaValue_should_be_rendered()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut =
                 new HelpText("Meta Value.").AddOptions(
                     new NotParsed<Options_With_MetaValue>(TypeInfo.Create(typeof(Options_With_MetaValue)), Enumerable.Empty<Error>()));
@@ -164,7 +164,7 @@ namespace CommandLine.Tests.Unit.Text
         public void When_help_text_is_longer_than_width_it_will_wrap_around_as_if_in_a_column_given_width_of_40()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText(headingInfo);
             sut.MaximumDisplayWidth = 40;
             sut.AddOptions(
@@ -174,7 +174,7 @@ namespace CommandLine.Tests.Unit.Text
 
             // Verify outcome
             var lines = sut.ToString().Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-            lines[2].Should().BeEquivalentTo("  v, verbose    This is the description"); //"The first line should have the arguments and the start of the Help Text.");
+            lines[2].Should().BeEquivalentTo("  v, verbose    This is the description"); //"The first line should have the arguments and the start of the Help Text."
             //string formattingMessage = "Beyond the second line should be formatted as though it's in a column.";
             lines[3].Should().BeEquivalentTo("                of the verbosity to test");
             lines[4].Should().BeEquivalentTo("                out the wrapping");
@@ -187,7 +187,7 @@ namespace CommandLine.Tests.Unit.Text
         public void When_help_text_is_longer_than_width_it_will_wrap_around_as_if_in_a_column_given_width_of_100()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText(headingInfo) { MaximumDisplayWidth = 100 };
             sut.AddOptions(
                 new NotParsed<Simple_Options_With_HelpText_Set_To_Long_Description>(
@@ -196,7 +196,7 @@ namespace CommandLine.Tests.Unit.Text
 
             // Verify outcome
             var lines = sut.ToString().Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-            lines[2].Should().BeEquivalentTo("  v, verbose    This is the description of the verbosity to test out the wrapping capabilities of"); //"The first line should have the arguments and the start of the Help Text.");
+            lines[2].Should().BeEquivalentTo("  v, verbose    This is the description of the verbosity to test out the wrapping capabilities of"); //"The first line should have the arguments and the start of the Help Text."
             //string formattingMessage = "Beyond the second line should be formatted as though it's in a column.";
             lines[3].Should().BeEquivalentTo("                the Help Text.");
             // Teardown
@@ -206,7 +206,7 @@ namespace CommandLine.Tests.Unit.Text
         public void When_help_text_has_hidden_option_it_should_not_be_added_to_help_text_output()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText(headingInfo);
             sut.MaximumDisplayWidth = 80;
             sut.AddOptions(
@@ -216,7 +216,7 @@ namespace CommandLine.Tests.Unit.Text
 
             // Verify outcome
             var lines = sut.ToString().Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-            lines[2].Should().BeEquivalentTo("  v, verbose    This is the description of the verbosity to test out the"); //"The first line should have the arguments and the start of the Help Text.");
+            lines[2].Should().BeEquivalentTo("  v, verbose    This is the description of the verbosity to test out the"); //"The first line should have the arguments and the start of the Help Text."
             //string formattingMessage = "Beyond the second line should be formatted as though it's in a column.";
             lines[3].Should().BeEquivalentTo("                wrapping capabilities of the Help Text.");
             // Teardown
@@ -226,7 +226,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Long_help_text_without_spaces()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText(headingInfo);
             sut.MaximumDisplayWidth = 40;
             sut.AddOptions(
@@ -249,7 +249,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Long_pre_and_post_lines_without_spaces()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText("Heading Info.");
             sut.MaximumDisplayWidth = 40;
             sut.AddPreOptionsLine("Before 0123456789012345678901234567890123456789012 After")
@@ -322,7 +322,7 @@ namespace CommandLine.Tests.Unit.Text
             Func<IEnumerable<MutuallyExclusiveSetError>, string> fakeMutExclRenderer =
                 _ => string.Empty;
 
-            // Exercize system
+            // Exercise system
             var errorsText = HelpText.RenderParsingErrorsText(fakeResult, fakeRenderer, fakeMutExclRenderer, 2);
 
             // Verify outcome
@@ -350,7 +350,7 @@ namespace CommandLine.Tests.Unit.Text
                         new SequenceOutOfRangeError(new NameInfo("i", ""))
                     });
 
-            // Exercize system
+            // Exercise system
             var helpText = HelpText.AutoBuild(fakeResult);
 
             // Verify outcome
@@ -385,7 +385,7 @@ namespace CommandLine.Tests.Unit.Text
                         new HelpVerbRequestedError("commit", typeof(Commit_Verb), true)
                     });
 
-            // Exercize system
+            // Exercise system
             var helpText = HelpText.AutoBuild(fakeResult);
 
             // Verify outcome
@@ -416,7 +416,7 @@ namespace CommandLine.Tests.Unit.Text
                         new HelpVerbRequestedError("commit", typeof(Commit_Verb), true)
                     });
 
-            // Exercize system
+            // Exercise system
             var helpText = HelpText.AutoBuild(fakeResult, maxDisplayWidth: 100);
 
             // Verify outcome
@@ -441,7 +441,7 @@ namespace CommandLine.Tests.Unit.Text
                     verbTypes),
                 new Error[] { new HelpVerbRequestedError(null, null, false) });
 
-            // Exercize system
+            // Exercise system
             var helpText = HelpText.AutoBuild(fakeResult);
 
             // Verify outcome
@@ -461,7 +461,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_with_options_and_values()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText { AddDashesToOption = true, AdditionalNewLineAfterOption = false }
                 .AddPreOptionsLine("pre-options")
                 .AddOptions(new NotParsed<Options_With_HelpText_And_MetaValue>(TypeInfo.Create(typeof(Options_With_HelpText_And_MetaValue)), Enumerable.Empty<Error>()))
@@ -493,7 +493,7 @@ namespace CommandLine.Tests.Unit.Text
                 new NotParsed<Options_With_Usage_Attribute>(
                     TypeInfo.Create(typeof(Options_With_Usage_Attribute)), Enumerable.Empty<Error>());
 
-            // Exercize system
+            // Exercise system
             var text = HelpText.RenderUsageText(result);
 
             // Verify outcome
@@ -526,7 +526,7 @@ namespace CommandLine.Tests.Unit.Text
                         new BadFormatTokenError("badtoken")
                     });
 
-            // Exercize system
+            // Exercise system
             var helpText = HelpText.AutoBuild(fakeResult,
                 h =>
                 {
@@ -600,7 +600,7 @@ namespace CommandLine.Tests.Unit.Text
                         new BadFormatTokenError("badtoken")
                     });
 
-            // Exercize system
+            // Exercise system
             var helpText = HelpText.AutoBuild(fakeResult,
                 h =>
                 {
@@ -645,7 +645,7 @@ namespace CommandLine.Tests.Unit.Text
                     typeof(Options_With_Default_Set_To_Sequence).ToTypeInfo(),
                     new Error[] { new BadFormatTokenError("badtoken") });
 
-            // Exercize system
+            // Exercise system
             handlers.ChangeCulture();
             var helpText = HelpText.AutoBuild(fakeResult);
             handlers.ResetCulture();
@@ -731,7 +731,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpTextHonoursLineBreaks()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText { AddDashesToOption = true }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(HelpTextWithLineBreaks_Options)),
                     Enumerable.Empty<Error>()));
@@ -750,7 +750,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpTextHonoursIndentationAfterLineBreaks()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText { AddDashesToOption = true }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(HelpTextWithLineBreaks_Options)),
                     Enumerable.Empty<Error>()));
@@ -792,7 +792,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpTextIsConsitentRegardlessOfCompileTimeLineStyle()
         {
             // Fixture setup
-            // Exercize system 
+            // Exercise system 
             var sut = new HelpText { AddDashesToOption = true }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(HelpTextWithMixedLineBreaks_Options)),
                     Enumerable.Empty<Error>()));
@@ -834,7 +834,7 @@ namespace CommandLine.Tests.Unit.Text
                     Enumerable.Empty<Error>()
                     );
 
-            // Exercize system
+            // Exercise system
             handlers.ChangeCulture();
             var helpText = HelpText.AutoBuild(fakeResult);
             handlers.ResetCulture();
@@ -966,7 +966,7 @@ namespace CommandLine.Tests.Unit.Text
                         new HelpVerbRequestedError("commit", typeof(Commit_Verb), true)
                     });
 
-            // Exercize system
+            // Exercise system
             var helpText = HelpText.AutoBuild(fakeResult, h => {
                 h.AdditionalNewLineAfterOption = false;
                 return h;
@@ -998,7 +998,7 @@ namespace CommandLine.Tests.Unit.Text
                     new SequenceOutOfRangeError(new NameInfo("i", ""))
                 });
 
-            // Exercize system
+            // Exercise system
             var helpText = HelpText.AutoBuild(fakeResult, h => h);
 
             // Verify outcome

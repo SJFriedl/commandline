@@ -266,9 +266,9 @@ namespace CSharpx
 
         /// <summary>
         /// Returns a sequence resulting from applying a function to each 
-        /// element in the source sequence and its 
-        /// predecessor, with the exception of the first element which is 
-        /// only returned as the predecessor of the second element.
+        /// element in the source sequence and its /predecessor, except
+        /// the first element which is /only returned as the
+        /// predecessor of the second element.
         /// </summary>
         public static IEnumerable<TResult> Pairwise<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TSource, TResult> resultSelector)
         {
@@ -418,7 +418,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Takes an element and a sequence and `intersperses' that element between its elements.
+        /// Takes an element and a sequence and "intersperses" that element between its elements.
         /// </summary>
         public static IEnumerable<T> Intersperse<T>(this IEnumerable<T> source, T element)
         {

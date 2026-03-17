@@ -141,7 +141,7 @@ namespace CSharpx
 
         #region Functor
         /// <summary>
-        /// Transforms a Either's right value by using a specified mapping function.
+        /// Transforms an Either's right value by using a specified mapping function.
         /// </summary>
         public static Either<TLeft, TResult> Map<TLeft, TRight, TResult>(Either<TLeft, TRight> either, Func<TRight, TResult> func)
         {
@@ -155,8 +155,8 @@ namespace CSharpx
 
         #region Bifunctor
         /// <summary>
-        /// Maps both parts of a Either type. Applies the first function if Either is Left.
-        /// Otherwise applies the second function.
+        /// Maps both parts of an Either type. Applies the first function if Either is Left.
+        /// Otherwise, applies the second function.
         /// </summary>
         public static Either<TLeft1, TRight1> Bimap<TLeft, TRight, TLeft1, TRight1>(Either<TLeft, TRight> either, Func<TLeft, TLeft1> mapLeft, Func<TRight, TRight1> mapRight)
         {
@@ -187,7 +187,7 @@ namespace CSharpx
         #endregion
 
         /// <summary>
-        /// Returns a Either Right or fail with an exception.
+        /// Returns an Either Right or fail with an exception.
         /// </summary>
         public static TRight GetOrFail<TLeft, TRight>(Either<TLeft, TRight> either)
         {
@@ -199,7 +199,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns a Either Left or a defualt value.
+        /// Returns an Either Left or a default value.
         /// </summary>
         public static TLeft GetLeftOrDefault<TLeft, TRight>(Either<TLeft, TRight> either, TLeft @default)
         {
@@ -208,7 +208,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns a Either Right or a defualt value.
+        /// Returns an Either Right or a default value.
         /// </summary>
         public static TRight GetRightOrDefault<TLeft, TRight>(Either<TLeft, TRight> either, TRight @default)
         {
@@ -217,7 +217,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Wraps a function, encapsulates any exception thrown within to a Either.
+        /// Wraps a function, encapsulates any exception thrown within to an Either.
         /// </summary>
         public static Either<Exception, TRight> Try<TRight>(Func<TRight> func)
         {

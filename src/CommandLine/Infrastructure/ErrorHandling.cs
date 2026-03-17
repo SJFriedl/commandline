@@ -277,7 +277,7 @@ namespace RailwaySharp.ErrorHandling
 
         /// <summary>
         /// If the given result is a Success the wrapped value will be returned. 
-        /// Otherwise the function throws an exception with Failure message of the result.
+        /// Otherwise, the function throws an exception with Failure message of the result.
         /// </summary>
 #if ERRH_ENABLE_INLINE_METHODS
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -319,7 +319,7 @@ namespace RailwaySharp.ErrorHandling
 
         /// <summary>
         /// If the result is a Success it executes the given function on the value.
-        /// Otherwise the exisiting failure is propagated.
+        /// Otherwise, the existing failure is propagated.
         /// </summary>
 #if ERRH_ENABLE_INLINE_METHODS
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -353,7 +353,7 @@ namespace RailwaySharp.ErrorHandling
         
         /// <summary>
         /// If the wrapped function is a success and the given result is a success the function is applied on the value. 
-        /// Otherwise the exisiting error messages are propagated.
+        /// Otherwise, the existing error messages are propagated.
         /// </summary>
 #if ERRH_ENABLE_INLINE_METHODS
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -546,7 +546,7 @@ namespace RailwaySharp.ErrorHandling
 
         /// <summary>
         /// If the result is a Success it executes the given Func on the value.
-        /// Otherwise the exisiting failure is propagated.
+        /// Otherwise, the existing failure is propagated.
         /// </summary>
 #if ERRH_ENABLE_INLINE_METHODS
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -560,7 +560,7 @@ namespace RailwaySharp.ErrorHandling
         /// <summary>
         /// If the result is a Success it executes the given Func on the value.
         /// If the result of the Func is a Success it maps it using the given Func.
-        /// Otherwise the exisiting failure is propagated.
+        /// Otherwise, the existing failure is propagated.
         /// </summary>
 #if ERRH_ENABLE_INLINE_METHODS
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

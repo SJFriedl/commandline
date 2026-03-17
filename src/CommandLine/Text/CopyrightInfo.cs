@@ -10,7 +10,7 @@ using CSharpx;
 namespace CommandLine.Text
 {
     /// <summary>
-    /// Models the copyright part of an help text.
+    /// Models the copyright part of a help text.
     /// You can assign it where you assign any <see cref="System.String"/> instance.
     /// </summary>
     public class CopyrightInfo
