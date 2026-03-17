@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using LinqEnumerable = System.Linq.Enumerable;
 
+// ReSharper disable once CheckNamespace
 namespace CSharpx
 {
 #if !CSX_ENUM_INTERNAL

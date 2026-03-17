@@ -10,6 +10,7 @@ using System.Linq;
 using CSharpx;
 #endif
 
+// ReSharper disable once CheckNamespace
 namespace RailwaySharp.ErrorHandling
 {
 #if !ERRH_INTERNAL
