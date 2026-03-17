@@ -27,7 +27,7 @@ namespace CommandLine.Text
         /// <exception cref="System.ArgumentException">Thrown when parameter <paramref name="programName"/> is null or empty string.</exception>
         public HeadingInfo(string programName, string version = null)
         {
-            if (string.IsNullOrWhiteSpace("programName")) throw new ArgumentException("programName");
+            if (string.IsNullOrWhiteSpace("programName")) throw new ArgumentException(nameof(programName));
 
             this.programName = programName;
             this.version = version;

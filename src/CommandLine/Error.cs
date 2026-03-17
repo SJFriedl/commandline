@@ -356,7 +356,7 @@ namespace CommandLine
     }
 
     /// <summary>
-    /// Models an error generated when a an option from another set is defined.
+    /// Models an error generated when an option from another set is defined.
     /// </summary>
     public sealed class MutuallyExclusiveSetError : NamedError
     {
