@@ -20,16 +20,16 @@ namespace CommandLine.Tests.Fakes
         }
 
         [Option(HelpText = "Define a string value here.")]
-        public string StringValue { get { return stringValue; } }
+        public string StringValue => stringValue;
 
         [Option('i', Min = 3, Max = 4, HelpText = "Define a int sequence here.")]
-        public IEnumerable<int> IntSequence { get { return intSequence; } }
+        public IEnumerable<int> IntSequence => intSequence;
 
         [Option('x', HelpText = "Define a boolean or switch value here.")]
-        public bool BoolValue { get { return boolValue; } }
+        public bool BoolValue => boolValue;
 
         [Value(0)]
-        public long LongValue { get { return longValue; } }
+        public long LongValue => longValue;
     }
 
     public class Immutable_Simple_Options_Invalid_Ctor_Args

@@ -13,10 +13,7 @@ namespace CommandLine.Tests.Fakes
         [Option('e')]
         public string OptValue
         {
-            get
-            {
-                return optValue;
-            }
+            get => optValue;
             set
             {
                 if (value != "good")

@@ -57,15 +57,13 @@ namespace CommandLine.Tests.Unit
             public int JobId { get; set; }
 
             [Usage(ApplicationAlias = "Importer.exe")]
-            public static IEnumerable<Example> Examples
-            {
-                get => new[] {
+            public static IEnumerable<Example> Examples =>
+                new[] {
                     new Example("Texts.ExplainExampleExecution", new Options() {
                         ConnectionString="Server=MyServer;Database=MyDatabase",
                         JobId = 5
                     }),
                 };
-            }
         }
     }
 }

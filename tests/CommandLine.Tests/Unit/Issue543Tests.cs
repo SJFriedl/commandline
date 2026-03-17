@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Xunit;
 using CommandLine.Text;
 
@@ -8,7 +7,6 @@ namespace CommandLine.Tests.Unit
     //Reference: PR# 634
     public class Issue543Tests
     {
-
         private const int ERROR_SUCCESS = 0;
 
         [Fact]
@@ -76,15 +74,13 @@ namespace CommandLine.Tests.Unit
             public int JobId { get; set; }
 
             [Usage(ApplicationAlias = "Importer.exe")]
-            public static IEnumerable<Example> Examples
-            {
-                get => new[] {
+            public static IEnumerable<Example> Examples =>
+                new[] {
                     new Example("Texts.ExplainExampleExecution", new Options() {
                         ConnectionString="Server=MyServer;Database=MyDatabase",
                         JobId = 5
                     }),
                 };
-            }
         }
 
         // Options

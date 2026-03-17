@@ -2,7 +2,7 @@
 {
     public static class StaticResource
     {
-        public static string HelpText { get { return "Localized HelpText"; } }
+        public static string HelpText => "Localized HelpText";
         public static TypeWithImplicitCast ImplicitCastHelpText => new TypeWithImplicitCast("Localized HelpText");
         public static TypeWithExplicitCast ExplicitCastHelpText => new TypeWithExplicitCast("Localized HelpText");
         public static TypeWithWrongImplicitCast WrongImplicitCastHelpText => new TypeWithWrongImplicitCast();
@@ -11,9 +11,9 @@
 
     public class NonStaticResource
     {
-        public static string HelpText { get { return "Localized HelpText"; } }
-        public static string WriteOnlyText { set { value?.ToString(); } }
-        private static string PrivateHelpText { get { return "Localized HelpText"; } }
+        public static string HelpText => "Localized HelpText";
+        public static string WriteOnlyText { set => value?.ToString(); }
+        private static string PrivateHelpText => "Localized HelpText";
         public static TypeWithImplicitCast ImplicitCastHelpText => new TypeWithImplicitCast("Localized HelpText");
         public static TypeWithExplicitCast ExplicitCastHelpText => new TypeWithExplicitCast("Localized HelpText");
         public static TypeWithWrongImplicitCast WrongImplicitCastHelpText => new TypeWithWrongImplicitCast();
@@ -22,12 +22,12 @@
 
     public class NonStaticResource_WithNonStaticProperty
     {
-        public string HelpText { get { return "Localized HelpText"; } }
+        public string HelpText => "Localized HelpText";
     }
 
     internal class InternalResource
     {
-        public static string HelpText { get { return "Localized HelpText"; } }
+        public static string HelpText => "Localized HelpText";
     }
 
     public class TypeWithImplicitCast

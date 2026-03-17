@@ -15,10 +15,7 @@ namespace CommandLine.Tests.Fakes
             this.value = value;
         }
 
-        public string Value
-        {
-            get { return value; }
-        }
+        public string Value => value;
     }
 
     class Options_With_Uri_And_SimpleType
