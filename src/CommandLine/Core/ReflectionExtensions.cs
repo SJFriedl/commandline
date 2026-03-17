@@ -65,7 +65,7 @@ namespace CommandLine.Core
 
         private static IEnumerable<Type> SafeGetInterfaces(this Type type)
         {
-            return type == null ? Enumerable.Empty<Type>() : type.GetTypeInfo().GetInterfaces();
+            return type?.GetTypeInfo().GetInterfaces() ?? Enumerable.Empty<Type>();
         }
 
         public static TargetType ToTargetType(this Type type)
