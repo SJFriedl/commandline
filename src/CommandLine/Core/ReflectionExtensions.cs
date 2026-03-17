@@ -125,13 +125,13 @@ namespace CommandLine.Core
 
         public static bool IsMutable(this Type type)
         {
-            if(type == typeof(object))
+            if (type == typeof(object))
                 return true;
 
             // Find all inherited defined properties and fields on the type
             var inheritedTypes = type.GetTypeInfo().FlattenHierarchy().Select(i => i.GetTypeInfo());
 
-            foreach (var inheritedType in inheritedTypes) 
+            foreach (var inheritedType in inheritedTypes)
             {
                 if (
                     inheritedType.GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance).Any(p => p.CanWrite) ||
@@ -162,7 +162,7 @@ namespace CommandLine.Core
             }
 
             var ctorTypes = type.GetSpecifications(pi => pi.PropertyType).ToArray();
- 
+
             return ReflectionHelper.CreateDefaultImmutableInstance(type, ctorTypes);
         }
 
@@ -206,7 +206,7 @@ namespace CommandLine.Core
             return
                    (type.GetTypeInfo().IsValueType && type != typeof(Guid))
                 || type.GetTypeInfo().IsPrimitive
-                || new [] { 
+                || new [] {
                      typeof(string)
                     ,typeof(decimal)
                     ,typeof(DateTime)

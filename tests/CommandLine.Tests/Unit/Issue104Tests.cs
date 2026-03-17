@@ -11,12 +11,11 @@ namespace CommandLine.Tests.Unit
 {
     public class Issue104Tests
     {
-
         [Fact]
         public void Create_instance_with_enum_options_enabled_and_nullable_enum()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true, AddEnumValuesToHelpText = true, MaximumDisplayWidth = 80 }
                 .AddPreOptionsLine("pre-options")
                 .AddOptions(new NotParsed<Options_With_Nullable_Enum_Having_HelpText>(TypeInfo.Create(typeof(Options_With_Enum_Having_HelpText)), Enumerable.Empty<Error>()))
@@ -39,7 +38,7 @@ namespace CommandLine.Tests.Unit
         public void Help_with_enum_options_enabled_and_nullable_enum()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var args = "--help".Split();
             var sut = new Parser(config => config.HelpWriter = null);
             var parserResult = sut.ParseArguments<Options_With_Nullable_Enum_Having_HelpText>(args);

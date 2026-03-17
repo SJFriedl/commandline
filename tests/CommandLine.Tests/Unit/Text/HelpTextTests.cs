@@ -36,7 +36,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_without_options(bool newlineBetweenSections)
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut =
                 new HelpText(new HeadingInfo("Unit-tests", "2.0"), new CopyrightInfo(true, "Author", 2005, 2013));
             sut.AddNewLineBetweenHelpSections = newlineBetweenSections;
@@ -72,7 +72,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_with_options(bool newlineBetweenSections)
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true, AddNewLineBetweenHelpSections = newlineBetweenSections }
                 .AddPreOptionsLine("pre-options")
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(Simple_Options)), Enumerable.Empty<Error>()))
@@ -103,7 +103,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_with_enum_options_enabled()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true, AddEnumValuesToHelpText = true, MaximumDisplayWidth = 80 }
                 .AddPreOptionsLine("pre-options")
                 .AddOptions(new NotParsed<Options_With_Enum_Having_HelpText>(TypeInfo.Create(typeof(Options_With_Enum_Having_HelpText)), Enumerable.Empty<Error>()))
@@ -126,7 +126,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_with_enum_options_disabled()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true }
                 .AddPreOptionsLine("pre-options")
                 .AddOptions(new NotParsed<Options_With_Enum_Having_HelpText>(TypeInfo.Create(typeof(Options_With_Enum_Having_HelpText)), Enumerable.Empty<Error>()))
@@ -148,7 +148,7 @@ namespace CommandLine.Tests.Unit.Text
         public void When_defined_MetaValue_should_be_rendered()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut =
                 new HelpText("Meta Value.").AddOptions(
                     new NotParsed<Options_With_MetaValue>(TypeInfo.Create(typeof(Options_With_MetaValue)), Enumerable.Empty<Error>()));
@@ -164,7 +164,7 @@ namespace CommandLine.Tests.Unit.Text
         public void When_help_text_is_longer_than_width_it_will_wrap_around_as_if_in_a_column_given_width_of_40()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText(headingInfo);
             sut.MaximumDisplayWidth = 40;
             sut.AddOptions(
@@ -187,7 +187,7 @@ namespace CommandLine.Tests.Unit.Text
         public void When_help_text_is_longer_than_width_it_will_wrap_around_as_if_in_a_column_given_width_of_100()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText(headingInfo) { MaximumDisplayWidth = 100 };
             sut.AddOptions(
                 new NotParsed<Simple_Options_With_HelpText_Set_To_Long_Description>(
@@ -206,7 +206,7 @@ namespace CommandLine.Tests.Unit.Text
         public void When_help_text_has_hidden_option_it_should_not_be_added_to_help_text_output()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText(headingInfo);
             sut.MaximumDisplayWidth = 80;
             sut.AddOptions(
@@ -226,7 +226,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Long_help_text_without_spaces()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText(headingInfo);
             sut.MaximumDisplayWidth = 40;
             sut.AddOptions(
@@ -249,7 +249,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Long_pre_and_post_lines_without_spaces()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText("Heading Info.");
             sut.MaximumDisplayWidth = 40;
             sut.AddPreOptionsLine("Before 0123456789012345678901234567890123456789012 After")
@@ -461,7 +461,7 @@ namespace CommandLine.Tests.Unit.Text
         public void Create_instance_with_options_and_values()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true, AdditionalNewLineAfterOption = false }
                 .AddPreOptionsLine("pre-options")
                 .AddOptions(new NotParsed<Options_With_HelpText_And_MetaValue>(TypeInfo.Create(typeof(Options_With_HelpText_And_MetaValue)), Enumerable.Empty<Error>()))
@@ -664,7 +664,7 @@ namespace CommandLine.Tests.Unit.Text
         [Fact]
         public void AutoBuild_when_no_assembly_attributes()
         {
-            string expectedCopyright = $"Copyright (C) {DateTime.Now.Year} author"; 
+            string expectedCopyright = $"Copyright (C) {DateTime.Now.Year} author";
 
             ReflectionHelper.SetAttributeOverride(Array.Empty<Attribute>());
 
@@ -731,7 +731,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpTextHonoursLineBreaks()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(HelpTextWithLineBreaks_Options)),
                     Enumerable.Empty<Error>()));
@@ -750,7 +750,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpTextHonoursIndentationAfterLineBreaks()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(HelpTextWithLineBreaks_Options)),
                     Enumerable.Empty<Error>()));
@@ -769,7 +769,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpTextPreservesIndentationAcrossWordWrap()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true, MaximumDisplayWidth = 60 }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(HelpTextWithLineBreaksAndSubIndentation_Options)),
                     Enumerable.Empty<Error>()));
@@ -792,7 +792,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpTextIsConsitentRegardlessOfCompileTimeLineStyle()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(HelpTextWithMixedLineBreaks_Options)),
                     Enumerable.Empty<Error>()));
@@ -811,7 +811,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpTextPreservesIndentationAcrossWordWrapWithSmallMaximumDisplayWidth()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AddDashesToOption = true, MaximumDisplayWidth = 10 }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(HelpTextWithLineBreaksAndSubIndentation_Options)),
                     Enumerable.Empty<Error>()));
@@ -842,7 +842,7 @@ namespace CommandLine.Tests.Unit.Text
             // Verify outcome
             var text = helpText.ToString();
             var lines = text.ToLines().TrimStringArray();
-            
+
             lines[3].Should().Be("-z, --strseq    (Default: a b c)");
             lines[5].Should().Be("-y, --intseq    (Default: 1 2 3)");
             lines[7].Should().Be("-q, --dblseq    (Default: 1.1 2.2 3.3)");
@@ -912,7 +912,7 @@ namespace CommandLine.Tests.Unit.Text
         }
 
         #region Custom Help
-        
+
         [Fact]
         [Trait("Category", "CustomHelp")]
         public void AutoBuild_with_custom_copyright_using_onError_action()
@@ -1019,7 +1019,7 @@ namespace CommandLine.Tests.Unit.Text
             lines[13].Should().BeEquivalentTo("-x                    Define a boolean or switch value here.");
             lines[14].Should().BeEmpty();
             lines[15].Should().BeEquivalentTo("--help                Display this help screen.");
-            
+
         }
         #endregion
     }

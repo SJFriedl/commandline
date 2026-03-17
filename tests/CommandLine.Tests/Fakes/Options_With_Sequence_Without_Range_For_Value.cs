@@ -7,6 +7,6 @@ namespace CommandLine.Tests.Fakes
     class Options_With_Sequence_Without_Range_For_Value
     {
         [Value(0)]
-        public IEnumerable<long> LongSequence { get; set; } 
+        public IEnumerable<long> LongSequence { get; set; }
     }
 }

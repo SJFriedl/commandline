@@ -19,13 +19,13 @@ namespace CommandLine.Tests.Unit
 
             // Exercise system
             sut.ParseArguments<Simple_Options>(new[] { "--version" });
-            var result = help.ToString();           
+            var result = help.ToString();
             // Verify outcome
-            var lines = result.ToNotEmptyLines();  
+            var lines = result.ToNotEmptyLines();
             result.Length.Should().BeGreaterThan(0);			
             result.Should().EndWith(Environment.NewLine);
             result.ToNotEmptyLines().Length.Should().Be(1);
-           
+
             // Teardown
         }
 	}

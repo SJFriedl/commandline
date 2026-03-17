@@ -15,7 +15,7 @@ namespace CommandLine.Tests.Unit.Core
             var expected = new KeyValuePair<string, IEnumerable<string>>[] { };
 
             var result = KeyValuePairHelper.ForSequence(new Token[] { });
-        
+
             AssertEqual(expected, result);
         }
 
@@ -29,7 +29,7 @@ namespace CommandLine.Tests.Unit.Core
 
             var result = KeyValuePairHelper.ForSequence(new []
                 {
-                    Token.Name("seq"), Token.Value("seq0"), Token.Value("seq1"), Token.Value("seq2") 
+                    Token.Name("seq"), Token.Value("seq0"), Token.Value("seq1"), Token.Value("seq2")
                 }).ToArray();
 
             AssertEqual(expected, result);

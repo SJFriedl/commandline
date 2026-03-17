@@ -2,7 +2,7 @@
 
 namespace CommandLine.Tests.Fakes
 {
-    
+
     [Verb("verb1")]
     class Options_HelpText_Ordering_Verb1
     {

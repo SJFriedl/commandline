@@ -13,7 +13,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpText_with_AdditionalNewLineAfterOption_true_should_have_newline()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AdditionalNewLineAfterOption = true }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(Simple_Options)),
                     Enumerable.Empty<Error>()));
@@ -38,7 +38,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpText_with_AdditionalNewLineAfterOption_false_should_not_have_newline()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AdditionalNewLineAfterOption = false }
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(Simple_Options)),
                     Enumerable.Empty<Error>()));
@@ -57,7 +57,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpText_with_by_default_should_include_help_version_option()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText ()
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(Simple_Options)),
                     Enumerable.Empty<Error>()));
@@ -75,7 +75,7 @@ namespace CommandLine.Tests.Unit.Text
         public void HelpText_with_AutoHelp_false_should_hide_help_option()
         {
             // Fixture setup
-            // Exercise system 
+            // Exercise system
             var sut = new HelpText { AutoHelp = false,AutoVersion = false}
                 .AddOptions(new NotParsed<Simple_Options>(TypeInfo.Create(typeof(Simple_Options)),
                     Enumerable.Empty<Error>()));

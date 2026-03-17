@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace CommandLine.Tests.Fakes
 {
     public class Options_With_Value_Sequence_And_Normal_Option
-    {        
+    {
         [Option('c', "compress",
             HelpText = "Compress Match Pattern, Pipe Separated (|) ",
-            Separator = '|',               
+            Separator = '|',
             Default = new[]
             {
         "*.txt", "*.log", "*.ini"
@@ -15,7 +15,7 @@ namespace CommandLine.Tests.Fakes
         public IEnumerable<string> Compress { get; set; }
 
         [Value(0,
-            HelpText = "Input Directories.",               
+            HelpText = "Input Directories.",
             Required = true)]
         public IEnumerable<string> InputDirs { get; set; }
 

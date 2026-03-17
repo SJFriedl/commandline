@@ -8,7 +8,6 @@ namespace CommandLine.Tests.Unit
 	//Reference: PR# 392
     public class Issue389Tests
     {
-
         private const int ERROR_SUCCESS = 0;
 
         // Test method (xUnit) which fails
@@ -23,8 +22,6 @@ namespace CommandLine.Tests.Unit
         // main program
         internal class Program
         {
-
-
             internal static int __Main(string[] args)
             {
                 bool hasError = false;
@@ -33,12 +30,12 @@ namespace CommandLine.Tests.Unit
                 ParserResult<Options> parsedOptions = Parser.Default.ParseArguments<Options>(args)
                     .WithNotParsed(errors => {
                         helpOrVersionRequested = errors.Any(
-                            x => x.Tag == ErrorType.HelpRequestedError 
+                            x => x.Tag == ErrorType.HelpRequestedError
                                  || x.Tag == ErrorType.VersionRequestedError);
                         hasError = true;
                     });
 
-                if(helpOrVersionRequested)
+                if (helpOrVersionRequested)
                 {
                     return ERROR_SUCCESS;
                 }
@@ -53,7 +50,6 @@ namespace CommandLine.Tests.Unit
         // Options
         internal class Options
         {
-
             [Option('c', "connectionString", Required = true, HelpText = "Texts.ExplainConnection")]
             public string ConnectionString { get; set; }
 
@@ -70,7 +66,6 @@ namespace CommandLine.Tests.Unit
                     }),
                 };
             }
-
         }
     }
 }

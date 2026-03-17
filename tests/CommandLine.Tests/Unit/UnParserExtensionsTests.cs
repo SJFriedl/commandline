@@ -7,7 +7,7 @@ using System.Linq;
 using Xunit;
 using FluentAssertions;
 using CommandLine.Tests.Fakes;
- 
+
 namespace CommandLine.Tests.Unit
 {
     public class UnParserExtensionsTests
@@ -28,7 +28,7 @@ namespace CommandLine.Tests.Unit
            new Parser()
             .FormatCommandLineArgs(options)
             .Should().BeEquivalentTo(result.SplitArgs());
-             
+
         }
 
         [Theory]
@@ -286,7 +286,7 @@ namespace CommandLine.Tests.Unit
         [InlineData("  --shape     Circle  ", new[] { "--shape", "Circle" })]
         [InlineData("-a --shape Circle", new[] {"-a", "--shape", "Circle" })]
         [InlineData("-a --shape Circle -- -x1 -x2", new[] { "-a", "--shape", "Circle","--","-x1","-x2" })]
-        [InlineData("--name \"name with space and quote\" -x1", new[] { "--name", "name with space and quote","-x1" })]       
+        [InlineData("--name \"name with space and quote\" -x1", new[] { "--name", "name with space and quote","-x1" })]
         public static void Split_arguments(string command, string[] expectedArgs)
         {
             var args = command.SplitArgs();

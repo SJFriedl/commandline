@@ -62,7 +62,7 @@ namespace CommandLine.Core
                         converted => Tuple.Create(pt.WithValue(Maybe.Just(converted)), Maybe.Nothing<Error>()),
                         Tuple.Create<SpecificationProperty, Maybe<Error>>(
                             pt, Maybe.Just<Error>(new BadFormatConversionError(NameInfo.EmptyName))));
-         
+
             foreach (var value in MapValuesImpl(specProps.Skip(1), values.Skip(taken.Count()), converter))
             {
                 yield return value;

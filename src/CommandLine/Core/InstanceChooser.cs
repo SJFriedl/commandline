@@ -140,7 +140,7 @@ namespace CommandLine.Core
                 parsingCulture,
                 autoHelp,
                 autoVersion,
-                allowMultiInstance,                
+                allowMultiInstance,
                 nonFatalErrors);
         }
 

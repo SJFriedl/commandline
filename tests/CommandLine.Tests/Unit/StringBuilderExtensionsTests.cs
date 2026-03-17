@@ -36,8 +36,6 @@ namespace CommandLine.Tests.Unit
             new object[] { "test string" }
         };
 
-        
-
         [Theory]
         [MemberData(nameof(GoodStartsWithData))]
         [MemberData(nameof(BadTestData))]

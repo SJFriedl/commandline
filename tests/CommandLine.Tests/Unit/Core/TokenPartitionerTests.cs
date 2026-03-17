@@ -25,7 +25,7 @@ namespace CommandLine.Tests.Unit.Core
                     new OptionSpecification("i", string.Empty, false, string.Empty, Maybe.Just(3), Maybe.Just(4), '\0', null, string.Empty, string.Empty, new List<string>(), typeof(IEnumerable<int>), TargetType.Sequence, string.Empty)
                 };
 
-            // Exercise system 
+            // Exercise system
             var result = TokenPartitioner.Partition(
                 new[] { Token.Name("i"), Token.Value("10"), Token.Value("20"), Token.Value("30"), Token.Value("40") },
                 name => TypeLookup.FindTypeDescriptorAndSibling(name, specs, StringComparer.Ordinal)
@@ -52,7 +52,7 @@ namespace CommandLine.Tests.Unit.Core
                     new OptionSpecification("i", string.Empty, false, string.Empty, Maybe.Just(3), Maybe.Just(4), '\0', null, string.Empty, string.Empty, new List<string>(), typeof(IEnumerable<int>), TargetType.Sequence, string.Empty)
                 };
 
-            // Exercise system 
+            // Exercise system
             var result = TokenPartitioner.Partition(
                 new[] { Token.Name("i"), Token.Value("10"), Token.Value("10"), Token.Value("30"), Token.Value("40") },
                 name => TypeLookup.FindTypeDescriptorAndSibling(name, specs, StringComparer.Ordinal)

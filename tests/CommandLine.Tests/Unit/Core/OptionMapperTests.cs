@@ -33,7 +33,7 @@ namespace CommandLine.Tests.Unit.Core
                         Maybe.Nothing<object>())
                 };
 
-            // Exercise system 
+            // Exercise system
             var result = OptionMapper.MapValues(
                 specProps.Where(pt => pt.Specification.IsOption()),
                 tokenPartitions,

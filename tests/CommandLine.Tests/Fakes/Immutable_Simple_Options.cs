@@ -31,7 +31,7 @@ namespace CommandLine.Tests.Fakes
         [Value(0)]
         public long LongValue { get { return longValue; } }
     }
-   
+
     public class Immutable_Simple_Options_Invalid_Ctor_Args
     {
         private readonly string stringValue;

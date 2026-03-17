@@ -35,7 +35,7 @@ namespace CommandLine.Tests.Fakes
 
         [Option('b', "bb", Required = false)]
         public string B { get; set; }
-        
+
         [Value(0, Required = true)]
         public string C { get; set; }
     }
@@ -44,12 +44,12 @@ namespace CommandLine.Tests.Fakes
 
     public class Options_For_Issue_617
     {
-        [Option("fm",  Separator=',', Default = new[] { FMode.S })]  
+        [Option("fm",  Separator=',', Default = new[] { FMode.S })]
         public IEnumerable<FMode> Mode { get; set; }
-            
+
         [Option('q')]
         public bool q { get;set; }
-            
+
         [Value(0)]
         public IList<string> Files { get; set; }
     }

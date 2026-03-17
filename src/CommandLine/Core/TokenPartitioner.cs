@@ -151,8 +151,8 @@ namespace CommandLine.Core
                             }
                             break;
                         }
-                    }
                 }
+            }
 
             foreach (var kvp in sequences)
             {
@@ -179,6 +179,5 @@ namespace CommandLine.Core
             SequenceTokenFound,
             ScalarTokenFound,
         }
-
     }
 }

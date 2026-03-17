@@ -10,6 +10,6 @@ namespace CommandLine.Tests.Fakes
         public IEnumerable<int> IntSequence { get; set; }
 
         //[Option("string-seq")]
-        //public IEnumerable<string> StringSequence { get; set; } 
+        //public IEnumerable<string> StringSequence { get; set; }
     }
 }

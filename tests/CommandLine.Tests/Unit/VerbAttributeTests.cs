@@ -16,7 +16,7 @@ namespace CommandLine.Tests
         {
             TestVerbAttribute verbAttribute = new TestVerbAttribute
             {
-                HelpText = helpText, 
+                HelpText = helpText,
                 ResourceType = resourceType
             };
 
@@ -32,7 +32,7 @@ namespace CommandLine.Tests
         {
             TestVerbAttribute verbAttribute = new TestVerbAttribute
             {
-                HelpText = helpText, 
+                HelpText = helpText,
                 ResourceType = resourceType
             };
 
