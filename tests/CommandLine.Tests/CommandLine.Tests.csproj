@@ -3,7 +3,6 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFrameworks>net8.0</TargetFrameworks>
-    <DefineConstants>$(DefineConstants);SKIP_FSHARP</DefineConstants>
     <AssemblyOriginatorKeyFile>..\..\CommandLine.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <Authors>gsscoder;nemec;ericnewton76;SJFriedl</Authors>

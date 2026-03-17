@@ -643,47 +643,6 @@ namespace CommandLine.Tests.Unit.Core
             expected.Should().Be(((Parsed<Options_With_Nullables>)result).Value.NullableLong);
         }
 
-#if !SKIP_FSHARP
-        [Theory]
-        [InlineData(new[] { "--filename", "log-20150626.txt" }, "log-20150626.txt", true)]
-        [InlineData(new string[] { }, null, false)]
-        public void Parse_fsharp_option_string(string[] arguments, string expectedValue, bool expectedSome)
-        {
-            // Fixture setup in attributes
-
-            // Exercise system 
-            var result = InvokeBuild<Options_With_FSharpOption>(
-                arguments);
-
-            // Verify outcome
-            if (((Parsed<Options_With_FSharpOption>)result).Value.FileName != null)
-            {
-                expectedValue.Should().BeEquivalentTo(((Parsed<Options_With_FSharpOption>)result).Value.FileName.Value);
-            }
-            expectedSome.Should().Be(FSharpOption<string>.get_IsSome(((Parsed<Options_With_FSharpOption>)result).Value.FileName));
-        }
-
-        [Theory]
-        [InlineData(new[] { "1234567" }, 1234567, true)]
-        [InlineData(new string[] { }, default(int), false)]
-        public void Parse_fsharp_option_int(string[] arguments, int expectedValue, bool expectedSome)
-        {
-            // Fixture setup in attributes
-
-            // Exercise system 
-            var result = InvokeBuild<Options_With_FSharpOption>(
-                arguments);
-
-            // Verify outcome
-            if (((Parsed<Options_With_FSharpOption>)result).Value.Offset != null)
-            {
-                expectedValue.Should().Be(((Parsed<Options_With_FSharpOption>)result).Value.Offset.Value);
-            }
-            expectedSome.Should().Be(FSharpOption<int>.get_IsSome(((Parsed<Options_With_FSharpOption>)result).Value.Offset));
-        }
-#endif
-
-
         [Fact]
         public void Min_constraint_set_to_zero_throws_exception()
         {

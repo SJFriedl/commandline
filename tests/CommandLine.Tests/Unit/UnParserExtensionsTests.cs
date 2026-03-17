@@ -7,9 +7,6 @@ using System.Linq;
 using Xunit;
 using FluentAssertions;
 using CommandLine.Tests.Fakes;
-#if !SKIP_FSHARP
-using Microsoft.FSharp.Core;
-#endif
  
 namespace CommandLine.Tests.Unit
 {
@@ -86,17 +83,6 @@ namespace CommandLine.Tests.Unit
                 .FormatCommandLine(options, config => config.ShowHidden = showHidden)
                 .Should().BeEquivalentTo(result);
         }
-
-#if !SKIP_FSHARP
-        [Theory]
-        [MemberData(nameof(UnParseDataFSharpOption))]
-        public static void UnParsing_instance_with_fsharp_option_returns_command_line(Options_With_FSharpOption options, string result)
-        {
-            new Parser()
-                .FormatCommandLine(options)
-                .Should().BeEquivalentTo(result);
-        }
-#endif
 
         [Fact]
         public static void UnParsing_instance_with_group_switches_returns_command_line_with_switches_grouped()
@@ -426,17 +412,5 @@ namespace CommandLine.Tests.Unit
                 yield return new object[] { new Hidden_Option { HiddenOption = "hidden" }, false, "" };
             }
         }
-#if !SKIP_FSHARP
-        public static IEnumerable<object[]> UnParseDataFSharpOption
-        {
-            get
-            {
-                yield return new object[] { new Options_With_FSharpOption(), "" };
-                yield return new object[] { new Options_With_FSharpOption { FileName = FSharpOption<string>.Some("myfile.bin") }, "--filename myfile.bin" };
-                yield return new object[] { new Options_With_FSharpOption { Offset = FSharpOption<int>.Some(123456789) }, "123456789" };
-                yield return new object[] { new Options_With_FSharpOption { FileName = FSharpOption<string>.Some("myfile.bin"), Offset = FSharpOption<int>.Some(123456789) }, "--filename myfile.bin 123456789" };
-            }
-        }
-#endif
     }
 }
