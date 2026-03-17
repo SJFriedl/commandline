@@ -68,7 +68,7 @@ namespace CommandLine
         {
             this.tag = ParserResultType.NotParsed;
             this.typeInfo = typeInfo ?? TypeInfo.Create(typeof(T));
-            Errors = errors ?? new Error[0];
+            Errors = errors ?? Array.Empty<Error>();
             Value = default;
         }
 
@@ -77,7 +77,7 @@ namespace CommandLine
             Value = value ?? throw new ArgumentNullException(nameof(value));
             this.tag = ParserResultType.Parsed;
             this.typeInfo = typeInfo ?? TypeInfo.Create(value.GetType());
-            Errors = new Error[0];
+            Errors = Array.Empty<Error>();
         }
 
         /// <summary>

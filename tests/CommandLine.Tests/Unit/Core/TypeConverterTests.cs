@@ -144,7 +144,7 @@ namespace CommandLine.Tests.Unit.Core
             {
                 return new[]
                 {
-                    new object[] {new string[0], typeof (int), false, 0},
+                    new object[] { Array.Empty<string>(), typeof (int), false, 0},
                     new object[] {new[] {"true"}, typeof (int), false, 1},
                     new object[] {new[] {"true", "true"}, typeof (int), false, 2},
                     new object[] {new[] {"true", "true", "true"}, typeof (int), false, 3},

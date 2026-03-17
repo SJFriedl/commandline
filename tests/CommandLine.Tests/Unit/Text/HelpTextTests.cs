@@ -666,10 +666,10 @@ namespace CommandLine.Tests.Unit.Text
         {
             string expectedCopyright = $"Copyright (C) {DateTime.Now.Year} author"; 
 
-            ReflectionHelper.SetAttributeOverride(new Attribute[0]);
+            ReflectionHelper.SetAttributeOverride(Array.Empty<Attribute>());
 
             ParserResult<Simple_Options> fakeResult = new NotParsed<Simple_Options>(
-                TypeInfo.Create(typeof(Simple_Options)), new Error[0]);
+                TypeInfo.Create(typeof(Simple_Options)), Array.Empty<Error>());
             HelpText actualResult = HelpText.AutoBuild(fakeResult, ht => ht, ex => ex);
             actualResult.Copyright.Should().Be(expectedCopyright);
         }
@@ -688,7 +688,7 @@ namespace CommandLine.Tests.Unit.Text
             });
 
             ParserResult<Simple_Options> fakeResult = new NotParsed<Simple_Options>(
-                TypeInfo.Create(typeof(Simple_Options)), new Error[0]);
+                TypeInfo.Create(typeof(Simple_Options)), Array.Empty<Error>());
             HelpText actualResult = HelpText.AutoBuild(fakeResult, ht => ht, ex => ex);
             actualResult.Heading.Should().Be(string.Format("{0} {1}", expectedTitle, expectedVersion));
         }
@@ -704,7 +704,7 @@ namespace CommandLine.Tests.Unit.Text
             });
 
             ParserResult<Simple_Options> fakeResult = new NotParsed<Simple_Options>(
-                TypeInfo.Create(typeof(Simple_Options)), new Error[0]);
+                TypeInfo.Create(typeof(Simple_Options)), Array.Empty<Error>());
             bool onErrorCalled = false;
             HelpText actualResult = HelpText.AutoBuild(fakeResult, ht =>
             {
