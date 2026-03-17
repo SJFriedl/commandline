@@ -7,6 +7,7 @@ CommandLineParser project adheres to [Semantic Versioning](https://semver.org/sp
 
 ###
 - got rid of the rest of the F# support
+- lots of ReSharper fixes
 
 ## [2.9.4] 2026-03-17
 
