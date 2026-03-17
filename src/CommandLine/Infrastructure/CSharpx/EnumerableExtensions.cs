@@ -447,7 +447,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Reduces a sequence of strings to a sequence of parts, splitted by space,
+        /// Reduces a sequence of strings to a sequence of parts, split by space,
         /// of each original string.
         /// </summary>
         public static IEnumerable<string> FlattenOnce(this IEnumerable<string> source)

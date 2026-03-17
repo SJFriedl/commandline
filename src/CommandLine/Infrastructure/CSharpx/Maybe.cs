@@ -152,7 +152,7 @@ namespace CSharpx
         #endregion
 
         /// <summary>
-        /// If both maybes contain a value, it merges them into a maybe with a tupled value.
+        /// If both Maybes contain a value, it merges them into a Maybe with a tupled value.
         /// </summary>
         public static Maybe<Tuple<T1, T2>> Merge<T1, T2>(Maybe<T1> first, Maybe<T2> second)
         {
@@ -295,7 +295,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// If contans a value executes an <see cref="System.Action{T1, T2}"/> delegate over it.
+        /// If contains a value executes an <see cref="System.Action{T1, T2}"/> delegate over it.
         /// </summary>
         public static void Do<T1, T2>(this Maybe<Tuple<T1, T2>> maybe, Action<T1, T2> action)
         {
@@ -308,7 +308,7 @@ namespace CSharpx
         #endregion
 
         /// <summary>
-        /// Returns <c>true</c> iffits argument is of the form <see cref="CSharpx.Just{T}"/>.
+        /// Returns <c>true</c> if its argument is of the form <see cref="CSharpx.Just{T}"/>.
         /// </summary>
         public static bool IsJust<T>(this Maybe<T> maybe)
         {
@@ -316,7 +316,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns <c>true</c> iffits argument is of the form <see cref="CSharpx.Nothing{T}"/>.
+        /// Returns <c>true</c> if its argument is of the form <see cref="CSharpx.Nothing{T}"/>.
         /// </summary>
         public static bool IsNothing<T>(this Maybe<T> maybe)
         {

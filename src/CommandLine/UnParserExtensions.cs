@@ -67,7 +67,7 @@ namespace CommandLine
         /// <summary>
         /// Factory method that creates an instance of <see cref="CommandLine.UnParserSettings"/> with GroupSwitches set to true.
         /// </summary>
-        /// <returns>A properly initalized <see cref="CommandLine.UnParserSettings"/> instance.</returns>
+        /// <returns>A properly initialized <see cref="CommandLine.UnParserSettings"/> instance.</returns>
         public static UnParserSettings WithGroupSwitchesOnly()
         {
             return new UnParserSettings { GroupSwitches = true };
@@ -76,7 +76,7 @@ namespace CommandLine
         /// <summary>
         /// Factory method that creates an instance of <see cref="CommandLine.UnParserSettings"/> with UseEqualToken set to true.
         /// </summary>
-        /// <returns>A properly initalized <see cref="CommandLine.UnParserSettings"/> instance.</returns>
+        /// <returns>A properly initialized <see cref="CommandLine.UnParserSettings"/> instance.</returns>
         public static UnParserSettings WithUseEqualTokenOnly()
         {
             return new UnParserSettings { UseEqualToken = true };
@@ -121,7 +121,7 @@ namespace CommandLine
         /// <param name="parser">Parser instance.</param>
         /// <param name="options">A parsed (or manually correctly constructed instance).</param>
         /// <param name="configuration">The <see cref="Action{UnParserSettings}"/> lambda used to configure
-        /// aspects and behaviors of the unparsersing process.</param>
+        /// aspects and behaviors of the unparser-ing process.</param>
         /// <returns>A string with command line arguments.</returns>
         public static string FormatCommandLine<T>(this Parser parser, T options, Action<UnParserSettings> configuration)
         {
@@ -206,7 +206,7 @@ namespace CommandLine
         /// <param name="parser">Parser instance.</param>
         /// <param name="options">A parsed (or manually correctly constructed instance).</param>
         /// <param name="configuration">The <see cref="Action{UnParserSettings}"/> lambda used to configure
-        /// aspects and behaviors of the unparsersing process.</param>
+        /// aspects and behaviors of the unparser-ing process.</param>
         /// <returns>A string[] with command line arguments.</returns>
         public static string[] FormatCommandLineArgs<T>(this Parser parser, T options, Action<UnParserSettings> configuration)
         {
@@ -221,7 +221,7 @@ namespace CommandLine
                     builder.Append(FormatWithQuotesIfString(value));
                     break;
                 case TargetType.Sequence:
-                    var sep = spec.SeperatorOrSpace();
+                    var sep = spec.SeparatorOrSpace();
                     Func<object, object> format = v
                         => sep == ' ' ? FormatWithQuotesIfString(v) : v;
                     var e = ((IEnumerable)value).GetEnumerator();
@@ -247,7 +247,7 @@ namespace CommandLine
                         ? "\"".JoinTo(doubQt(v), "\"") : v, value);
         }
 
-        private static char SeperatorOrSpace(this Specification spec)
+        private static char SeparatorOrSpace(this Specification spec)
         {
             return (spec as OptionSpecification).ToMaybe()
                 .MapValueOrDefault(o => o.Separator != '\0' ? o.Separator : ' ', ' ');

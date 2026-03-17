@@ -56,7 +56,7 @@ namespace CommandLine.Text
         public abstract Func<bool, string> HelpCommandText { get; }
 
         /// <summary>
-        /// Get a delegate that returns the help text of vesion command.
+        /// Get a delegate that returns the help text of version command.
         /// The delegates must accept a boolean that is equal <value>true</value> for options; otherwise <value>false</value> for verbs.
         /// </summary>
         public abstract Func<bool, string> VersionCommandText { get; }
@@ -126,10 +126,10 @@ namespace CommandLine.Text
                                 case ErrorType.UnknownOptionError:
                                     return "Option '".JoinTo(((UnknownOptionError)error).Token, "' is unknown.");
                                 case ErrorType.MissingRequiredOptionError:
-                                    var errMisssing = ((MissingRequiredOptionError)error);
-                                    return errMisssing.NameInfo.Equals(NameInfo.EmptyName)
+                                    var errMissing = ((MissingRequiredOptionError)error);
+                                    return errMissing.NameInfo.Equals(NameInfo.EmptyName)
                                                ? "A required value not bound to option name is missing."
-                                               : "Required option '".JoinTo(errMisssing.NameInfo.NameText, "' is missing.");
+                                               : "Required option '".JoinTo(errMissing.NameInfo.NameText, "' is missing.");
                                 case ErrorType.BadFormatConversionError:
                                     var badFormat = ((BadFormatConversionError)error);
                                     return badFormat.NameInfo.Equals(NameInfo.EmptyName)

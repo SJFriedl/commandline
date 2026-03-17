@@ -76,7 +76,7 @@ namespace CommandLine
         public TypeInfo TypeInfo { get; }
 
         /// <summary>
-        /// Gets the instance with parsed values. If one or more errors occures, <see langword="default"/> is returned.
+        /// Gets the instance with parsed values. If one or more errors occurs, <see langword="default"/> is returned.
         /// </summary>
         public T Value { get; }
 
