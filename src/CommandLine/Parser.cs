@@ -61,18 +61,12 @@ namespace CommandLine
         /// <summary>
         /// Gets the singleton instance created with basic defaults.
         /// </summary>
-        public static Parser Default
-        {
-            get { return DefaultParser.Value; }
-        }
+        public static Parser Default => DefaultParser.Value;
 
         /// <summary>
         /// Gets the instance that implements <see cref="CommandLine.ParserSettings"/> in use.
         /// </summary>
-        public ParserSettings Settings
-        {
-            get { return settings; }
-        }
+        public ParserSettings Settings => settings;
 
         /// <summary>
         /// Parses a string array of command line arguments constructing values in an instance of type <typeparamref name="T"/>.

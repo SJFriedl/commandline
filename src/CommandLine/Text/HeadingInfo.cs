@@ -36,13 +36,7 @@ namespace CommandLine.Text
         /// <summary>
         /// An empty object used for initialization. 
         /// </summary>
-        public static HeadingInfo Empty
-        {
-            get
-            {
-                return new HeadingInfo("");
-            }
-        }
+        public static HeadingInfo Empty => new(string.Empty);
 
         /// <summary>
         /// Gets the default heading instance.

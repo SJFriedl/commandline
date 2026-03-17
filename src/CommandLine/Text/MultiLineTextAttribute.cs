@@ -104,42 +104,27 @@ namespace CommandLine.Text
         /// <summary>
         /// Gets the first line of text.
         /// </summary>
-        public string Line1
-        {
-            get { return line1; }
-        }
+        public string Line1 => line1;
 
         /// <summary>
         /// Gets the second line of text.
         /// </summary>
-        public string Line2
-        {
-            get { return line2; }
-        }
+        public string Line2 => line2;
 
         /// <summary>
         /// Gets third line of text.
         /// </summary>
-        public string Line3
-        {
-            get { return line3; }
-        }
+        public string Line3 => line3;
 
         /// <summary>
         /// Gets the fourth line of text.
         /// </summary>
-        public string Line4
-        {
-            get { return line4; }
-        }
+        public string Line4 => line4;
 
         /// <summary>
         /// Gets the fifth line of text.
         /// </summary>
-        public string Line5
-        {
-            get { return line5; }
-        }
+        public string Line5 => line5;
 
         internal HelpText AddToHelpText(HelpText helpText, Func<string, HelpText> func)
         {

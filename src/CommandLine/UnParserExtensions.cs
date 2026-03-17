@@ -26,8 +26,8 @@ namespace CommandLine
         /// </summary>
         public bool PreferShortName
         {
-            get { return preferShortName; }
-            set { PopsicleSetter.Set(Consumed, ref preferShortName, value); }
+            get => preferShortName;
+            set => PopsicleSetter.Set(Consumed, ref preferShortName, value);
         }
 
         /// <summary>
@@ -35,8 +35,8 @@ namespace CommandLine
         /// </summary>
         public bool GroupSwitches
         {
-            get { return groupSwitches; }
-            set { PopsicleSetter.Set(Consumed, ref groupSwitches, value); }
+            get => groupSwitches;
+            set => PopsicleSetter.Set(Consumed, ref groupSwitches, value);
         }
 
         /// <summary>
@@ -44,8 +44,8 @@ namespace CommandLine
         /// </summary>
         public bool UseEqualToken
         {
-            get { return useEqualToken; }
-            set { PopsicleSetter.Set(Consumed, ref useEqualToken, value); }
+            get => useEqualToken;
+            set => PopsicleSetter.Set(Consumed, ref useEqualToken, value);
         }
 
         /// <summary>
@@ -53,16 +53,16 @@ namespace CommandLine
         /// </summary>
         public bool ShowHidden
         {
-            get { return showHidden; }
-            set { PopsicleSetter.Set(Consumed, ref showHidden, value); }
+            get => showHidden;
+            set => PopsicleSetter.Set(Consumed, ref showHidden, value);
         }
         /// <summary>
         /// Gets or sets a value indicating whether unparsing process shall skip options with DefaultValue.
         /// </summary>
         public bool SkipDefault
         {
-            get { return skipDefault; }
-            set { PopsicleSetter.Set(Consumed, ref skipDefault, value); }
+            get => skipDefault;
+            set => PopsicleSetter.Set(Consumed, ref skipDefault, value);
         }
         /// <summary>
         /// Factory method that creates an instance of <see cref="CommandLine.UnParserSettings"/> with GroupSwitches set to true.

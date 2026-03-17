@@ -112,11 +112,7 @@ namespace CommandLine
         public Type ResourceType
         {
             get => resourceType;
-            set
-            {
-                resourceType =
-                helpText.ResourceType = value;
-            }
+            set => resourceType = helpText.ResourceType = value;
         }
     }
 }

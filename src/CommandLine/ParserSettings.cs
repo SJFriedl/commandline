@@ -84,7 +84,7 @@ namespace CommandLine
         public bool CaseSensitive
         {
             get => caseSensitive;
-            set { PopsicleSetter.Set(Consumed, ref caseSensitive, value); }
+            set => PopsicleSetter.Set(Consumed, ref caseSensitive, value);
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace CommandLine
         public bool CaseInsensitiveEnumValues
         {
             get => caseInsensitiveEnumValues;
-            set { PopsicleSetter.Set(Consumed, ref caseInsensitiveEnumValues, value); }
+            set => PopsicleSetter.Set(Consumed, ref caseInsensitiveEnumValues, value);
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace CommandLine
         public TextWriter HelpWriter
         {
             get => helpWriter;
-            set { PopsicleSetter.Set(Consumed, ref helpWriter, value); }
+            set => PopsicleSetter.Set(Consumed, ref helpWriter, value);
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace CommandLine
         public bool IgnoreUnknownArguments
         {
             get => ignoreUnknownArguments;
-            set { PopsicleSetter.Set(Consumed, ref ignoreUnknownArguments, value); }
+            set => PopsicleSetter.Set(Consumed, ref ignoreUnknownArguments, value);
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace CommandLine
         public bool AutoHelp
         {
             get => autoHelp;
-            set { PopsicleSetter.Set(Consumed, ref autoHelp, value); }
+            set => PopsicleSetter.Set(Consumed, ref autoHelp, value);
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace CommandLine
         public bool AutoVersion
         {
             get => autoVersion;
-            set { PopsicleSetter.Set(Consumed, ref autoVersion, value); }
+            set => PopsicleSetter.Set(Consumed, ref autoVersion, value);
         }
 
         /// <summary>

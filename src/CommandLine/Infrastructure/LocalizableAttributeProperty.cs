@@ -17,7 +17,7 @@ namespace CommandLine.Infrastructure
 
         public string Value
         {
-            get { return GetLocalizedValue(); }
+            get => GetLocalizedValue();
             set
             {
                 _localizationPropertyInfo = null;
