@@ -19,7 +19,7 @@ namespace CommandLine.Tests.Unit.Core
             var specs = new[] { new OptionSpecification(string.Empty, "string-seq",
                 false, string.Empty, Maybe.Nothing<int>(), Maybe.Nothing<int>(), '.', null, string.Empty, string.Empty, new List<string>(), typeof(IEnumerable<string>), TargetType.Sequence, string.Empty)};
 
-            // Exercize system
+            // Exercise system
             var result = NameLookup.HavingSeparator("string-seq", specs, StringComparer.Ordinal);
             // Verify outcome
             expected.Should().BeEquivalentTo(result);
@@ -37,7 +37,7 @@ namespace CommandLine.Tests.Unit.Core
             var expected = new NameInfo(ShortName, LongName);
             var spec = new OptionSpecification(ShortName, LongName, false, string.Empty, Maybe.Nothing<int>(), Maybe.Nothing<int>(), '.', null, string.Empty, string.Empty, new List<string>(), typeof(IEnumerable<string>), TargetType.Sequence, string.Empty);
 
-            // Exercize system
+            // Exercise system
             var result = spec.FromOptionSpecification();
 
             // Verify outcome

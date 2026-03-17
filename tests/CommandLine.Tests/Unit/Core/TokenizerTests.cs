@@ -23,7 +23,7 @@ namespace CommandLine.Tests.Unit.Core
             var specs = new[] { new OptionSpecification(string.Empty, "string-seq",
                 false, string.Empty, Maybe.Nothing<int>(), Maybe.Nothing<int>(), ',', null, string.Empty, string.Empty, new List<string>(), typeof(IEnumerable<string>), TargetType.Sequence, string.Empty)};
 
-            // Exercize system
+            // Exercise system
             var result =
                 Tokenizer.ExplodeOptionList(
                     Result.Succeed(
@@ -46,7 +46,7 @@ namespace CommandLine.Tests.Unit.Core
             var specs = new[] { new OptionSpecification(string.Empty, "string-seq",
                 false, string.Empty, Maybe.Nothing<int>(), Maybe.Nothing<int>(), ',', null, string.Empty, string.Empty, new List<string>(), typeof(IEnumerable<string>), TargetType.Sequence, string.Empty)};
 
-            // Exercize system
+            // Exercise system
             var result =
                 Tokenizer.ExplodeOptionList(
                     Result.Succeed(
@@ -71,7 +71,7 @@ namespace CommandLine.Tests.Unit.Core
             Func<string, bool> nameLookup =
                 name => name.Equals("x") || name.Equals("string-seq") || name.Equals("switch");
 
-            // Exercize system
+            // Exercise system
             var result =
                 Tokenizer.Normalize(
                         //Result.Succeed(
@@ -99,7 +99,7 @@ namespace CommandLine.Tests.Unit.Core
             Func<string, bool> nameLookup =
                 name => name.Equals("x") || name.Equals("string-seq") || name.Equals("switch");
 
-            // Exercize system
+            // Exercise system
             var result =
                 Tokenizer.Normalize(
                     //Result.Succeed(

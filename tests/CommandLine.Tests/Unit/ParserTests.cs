@@ -20,7 +20,7 @@ namespace CommandLine.Tests.Unit
             var writer = new StringWriter();
             var sut = new Parser(with => with.HelpWriter = writer);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Options_With_Required_Set_To_True>(new string[] { });
 
             // Verify outcome
@@ -36,7 +36,7 @@ namespace CommandLine.Tests.Unit
             var writer = new StringWriter();
             var sut = new Parser(with => with.HelpWriter = writer);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments(new string[] { }, typeof(Add_Verb), typeof(Commit_Verb), typeof(Clone_Verb));
 
             // Verify outcome
@@ -52,7 +52,7 @@ namespace CommandLine.Tests.Unit
             var writer = new StringWriter();
             var sut = new Parser(with => with.HelpWriter = writer);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Add_Verb, Commit_Verb, Clone_Verb>(new string[] { });
 
             // Verify outcome
@@ -68,7 +68,7 @@ namespace CommandLine.Tests.Unit
             var expectedOptions = new Simple_Options { StringValue = "strvalue", IntSequence = new[] { 1, 2, 3 } };
             var sut = new Parser();
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Simple_Options>(new[] { "--stringvalue=strvalue", "-i1", "2", "3" });
 
             // Verify outcome
@@ -87,7 +87,7 @@ namespace CommandLine.Tests.Unit
             var expectedOptions = new Options_With_Switches { OutputFile = outputFile };
             var sut = new Parser();
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Options_With_Switches>(args);
 
             // Verify outcome
@@ -116,7 +116,7 @@ namespace CommandLine.Tests.Unit
             var expectedOptions = new Options_With_FlagCounter_Switches { Verbose = verboseCount, Silent = silentCount };
             var sut = new Parser(with => with.AllowMultiInstance = true);
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Options_With_FlagCounter_Switches>(args);
 
             // Verify outcome
@@ -131,7 +131,7 @@ namespace CommandLine.Tests.Unit
             // Fixture setup
             var sut = Parser.Default;
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Options_With_Switches>(new[] { "-i", "-i", "-o", "file" });
 
             // Verify outcome
@@ -153,7 +153,7 @@ namespace CommandLine.Tests.Unit
                                   };
             var sut = new Parser(with => with.EnableDashDash = true);
 
-            // Exercize system
+            // Exercise system
             var result =
                 sut.ParseArguments<Simple_Options_With_Values>(
                     new[] { "--stringvalue", "astring", "--", "20", "--aaa", "-b", "--ccc", "30" });
@@ -189,7 +189,7 @@ namespace CommandLine.Tests.Unit
 
             var sut = new Parser(with => with.EnableDashDash = true);
 
-            // Exercize system
+            // Exercise system
             var result =
                 sut.ParseArguments<Options_With_Option_Sequence_And_Value_Sequence>(
                     new[] { "--option-seq", "option1", "option2", "option3", "--", "value1", "value2", "value3" });
@@ -205,7 +205,7 @@ namespace CommandLine.Tests.Unit
             var expectedOptions = new Add_Verb { Patch = true, FileName = "--strange-fn" };
             var sut = new Parser(with => with.EnableDashDash = true);
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments(
                 new[] { "add", "-p", "--", "--strange-fn" },
                 typeof(Add_Verb),
@@ -226,7 +226,7 @@ namespace CommandLine.Tests.Unit
             var expectedOptions = new Options_With_Switches();
             var sut = new Parser();
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Options_With_Switches>(args);
 
             // Verify outcome
@@ -250,7 +250,7 @@ namespace CommandLine.Tests.Unit
                                   };
             var sut = new Parser();
 
-            // Exercize system
+            // Exercise system
             var result =
                 sut.ParseArguments(
                     new[] { "clone", "-q", "http://gsscoder.github.com/", "http://yes-to-nooo.github.com/" },
@@ -275,7 +275,7 @@ namespace CommandLine.Tests.Unit
             var expectedOptions = new Commit_Verb() { Message = message };
             var sut = new Parser();
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments(
                 args,
                 typeof(Add_Verb), typeof(Commit_Verb), typeof(Clone_Verb));
@@ -292,7 +292,7 @@ namespace CommandLine.Tests.Unit
             // Fixture setup
             var sut = Parser.Default;
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments(
                 new[] { "clone", "-q", "-q", "http://gsscoder.github.com/", "http://yes-to-nooo.github.com/" },
                 typeof(Add_Verb), typeof(Commit_Verb), typeof(Clone_Verb));
@@ -319,7 +319,7 @@ namespace CommandLine.Tests.Unit
                                   };
             var sut = new Parser();
 
-            // Exercize system
+            // Exercise system
             var result =
                 sut.ParseArguments<Add_Verb, Commit_Verb, Clone_Verb>(
                     new[] { "clone", "-q", "http://gsscoder.github.com/", "http://yes-to-nooo.github.com/" });
@@ -337,7 +337,7 @@ namespace CommandLine.Tests.Unit
             var expectedOptions = new Immutable_Simple_Options("strvalue", new[] { 1, 2, 3 }, default(bool), default(long));
             var sut = new Parser();
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Immutable_Simple_Options>(new[] { "--stringvalue=strvalue", "-i1", "2", "3" });
 
             // Verify outcome
@@ -352,7 +352,7 @@ namespace CommandLine.Tests.Unit
             var expectedError = new HelpRequestedError();
             var sut = new Parser();
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Immutable_Simple_Options>(new[] { "--help" });
 
             // Verify outcome
@@ -368,7 +368,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Immutable_Simple_Options>(new[] { "--help" });
             var result = help.ToString();
 
@@ -384,7 +384,7 @@ namespace CommandLine.Tests.Unit
             var expectedError = new VersionRequestedError();
             var sut = new Parser();
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Simple_Options>(new[] { "--version" });
 
             // Verify outcome
@@ -400,7 +400,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Simple_Options>(new[] { "--version" });
             var result = help.ToString();
 
@@ -419,7 +419,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Add_Verb, Commit_Verb, Clone_Verb>(new string[] { });
             var result = help.ToString();
 
@@ -468,7 +468,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Add_Verb, Commit_Verb, Clone_Verb>(new[] { "--help" });
             var result = help.ToString();
 
@@ -493,7 +493,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Add_Verb, Commit_Verb, Clone_Verb>(new[] { command });
             var result = help.ToString();
 
@@ -512,7 +512,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Options_With_Two_Option_Required_Set_To_True_And_Two_Sets>(new[] { "--weburl=value.com", "--ftpurl=value.org" });
             var result = help.ToString();
 
@@ -538,7 +538,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Add_Verb, Commit_Verb, Clone_Verb>(new[] { "commit", "--help" });
             var result = help.ToString();
 
@@ -558,7 +558,7 @@ namespace CommandLine.Tests.Unit
                 config.MaximumDisplayWidth = 80;
             });
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Add_Verb_With_Usage_Attribute, Commit_Verb_With_Usage_Attribute, Clone_Verb_With_Usage_Attribute>(
                 new[] { "clone", "--badoption=@bad?value" });
             var result = help.ToString();
@@ -593,7 +593,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Secert_Verb, Add_Verb_With_Usage_Attribute>(new string[] { });
             var result = help.ToString();
             
@@ -617,7 +617,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Secert_Verb, Add_Verb_With_Usage_Attribute>(new string[] { "secert", "--help" });
             var result = help.ToString();
             
@@ -640,7 +640,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Secert_Verb, Add_Verb_With_Usage_Attribute>(new string[] { "secert", "--force" });
             
 
@@ -660,7 +660,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Secert_Verb, Add_Verb_With_Usage_Attribute>(new string[] { "secert", "--force", "--secert-option", "shhh" });
             
             // Verify outcome
@@ -682,7 +682,7 @@ namespace CommandLine.Tests.Unit
                 config.MaximumDisplayWidth = 80;
             });
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Add_Verb, Commit_Verb, Clone_Verb>(
                 new[] { "help", "clone", "extra-arg" });
             var result = help.ToString();
@@ -710,7 +710,7 @@ namespace CommandLine.Tests.Unit
             // Fixture setup
             var sut = new Parser(config => config.IgnoreUnknownArguments = true);
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Simple_Options>(arguments);
 
             // Verify outcome
@@ -729,7 +729,7 @@ namespace CommandLine.Tests.Unit
             // Fixture setup
             var sut = new Parser(config => config.IgnoreUnknownArguments = true);
 
-            // Exercize system
+            // Exercise system
             var result = sut.ParseArguments<Add_Verb, Commit_Verb, Clone_Verb>(arguments);
 
             // Verify outcome
@@ -750,7 +750,7 @@ namespace CommandLine.Tests.Unit
                 config.MaximumDisplayWidth = 80;
             });
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Add_Verb, Commit_Verb, Clone_Verb>(
                 new[] { "clone", "--bad-arg", "--help" });
             var result = help.ToString();
@@ -783,7 +783,7 @@ namespace CommandLine.Tests.Unit
             };
             var sut = new Parser();
 
-            // Exercize system 
+            // Exercise system 
             var result = sut.ParseArguments<Options_With_SetName_That_Ends_With_Previous_SetName>(
                 new[] { "--weburl", "value", "--somethingelse", "othervalue" });
 
@@ -902,7 +902,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Secert_Verb, Add_Verb_With_Usage_Attribute>(new string[] { });
             var result = help.ToString();
             

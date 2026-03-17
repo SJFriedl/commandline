@@ -71,7 +71,7 @@ namespace CommandLine.Tests.Unit.Core
             var expectedResult = new NotParsed<Simple_Options>(
                 TypeInfo.Create(typeof(Simple_Options)), new Error[] { new HelpRequestedError() });
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 new[] { "--help" });
 
@@ -87,7 +87,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 arguments);
 
@@ -105,7 +105,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_Double_Value>(
                 arguments);
 
@@ -124,7 +124,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Sequence>(
                 arguments);
 
@@ -141,7 +141,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 arguments);
 
@@ -159,7 +159,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup with attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Sequence_And_Only_Min_Constraint>(
                 arguments);
 
@@ -176,7 +176,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup with attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Sequence_And_Only_Max_Constraint>(
                 arguments);
 
@@ -190,7 +190,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new MissingValueOptionError(new NameInfo("s", "string-seq")) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Sequence_And_Only_Min_Constraint>(
                 new[] { "-s" });
 
@@ -204,7 +204,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new SequenceOutOfRangeError(NameInfo.EmptyName) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Sequence_And_Only_Min_Constraint_For_Value>(
                 new string[] { });
 
@@ -218,7 +218,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { "one", "two", "three" };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Sequence_And_Only_Max_Constraint>(
                 new[] { "--string-seq=one", "two", "three", "this-is-too-much" });
 
@@ -233,7 +233,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new SequenceOutOfRangeError(NameInfo.EmptyName) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Sequence_And_Only_Max_Constraint_For_Value>(
                 new[] { "one", "two", "three", "this-is-too-much" });
 
@@ -252,7 +252,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attribute
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_Enum>(
                 arguments);
 
@@ -271,7 +271,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attribute
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuildEnumValuesCaseIgnore<Simple_Options_With_Enum>(
                 arguments);
 
@@ -285,7 +285,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new BadFormatConversionError(new NameInfo("", "colors")) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_Enum>(
                 new[] { "--colors", "3" });
 
@@ -299,7 +299,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new BadFormatConversionError(new NameInfo("", "colors")) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_Enum>(
                 new[] { "--colors", "Yellow" });
 
@@ -313,7 +313,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new BadFormatConversionError(new NameInfo("", "colors")) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_Enum>(
                 new[] { "--colors", "RED" });
 
@@ -333,7 +333,7 @@ namespace CommandLine.Tests.Unit.Core
                 IntValue = 20
             };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_Values>(
                 new[] { "10", "a", "b", "c", "20" });
 
@@ -351,7 +351,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Sequence_Without_Range_For_Value>(
                 arguments);
 
@@ -368,7 +368,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system
+            // Exercise system
             var result = InvokeBuild<Options_With_Sequence_Having_Separator_Set>(
                 arguments);
 
@@ -385,7 +385,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system
+            // Exercise system
             var result = InvokeBuild<Options_With_Sequence_Having_Separator_Set>(
                 arguments);
 
@@ -409,7 +409,7 @@ namespace CommandLine.Tests.Unit.Core
             };
             var arguments = new[] { "--stringvalue", "str1", "--", "10", "-a", "--bee", "-c", "20" };
 
-            // Exercize system 
+            // Exercise system 
             var result = InstanceBuilder.Build(
                 Maybe.Just<Func<Simple_Options_With_Values>>(() => new Simple_Options_With_Values()),
                 (a, optionSpecs) =>
@@ -437,7 +437,7 @@ namespace CommandLine.Tests.Unit.Core
                     new MutuallyExclusiveSetError(new NameInfo("", "ftpurl"), string.Empty)
                 };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Two_Sets>(
                 new[] { "--weburl", "http://mywebsite.org/", "--ftpurl", "fpt://ftpsite.org/" });
 
@@ -454,7 +454,7 @@ namespace CommandLine.Tests.Unit.Core
                 FtpUrl = "str1",
                 WebUrl = "str2"
             };
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Required_Set_To_True_Within_Same_Set>(
                 new[] { "--ftpurl", "str1", "--weburl", "str2" });
 
@@ -472,7 +472,7 @@ namespace CommandLine.Tests.Unit.Core
                 new MissingRequiredOptionError(new NameInfo("", "ftpurl")),
                 new MissingRequiredOptionError(new NameInfo("", "weburl"))
             };
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Required_Set_To_True_Within_Same_Set>(
                 new string[] { });
 
@@ -486,7 +486,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new MissingRequiredOptionError(new NameInfo("", "str")) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Required_Set_To_True>(
                 new string[] { });
 
@@ -500,7 +500,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new SequenceOutOfRangeError(new NameInfo("i", "")) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 new[] { "-i", "10" });
 
@@ -514,7 +514,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new UnknownOptionError("xyz") };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 new[] { "--stringvalue", "abc", "--xyz" });
 
@@ -528,7 +528,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new UnknownOptionError("z") };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 new[] { "-z", "-x" });
 
@@ -542,7 +542,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new UnknownOptionError("z") };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 new[] { "-zx" });
 
@@ -557,7 +557,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 arguments);
 
@@ -571,7 +571,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new MissingRequiredOptionError(NameInfo.EmptyName) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Required_Set_To_True_For_Values>(
                 new string[] { });
 
@@ -588,7 +588,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 arguments);
 
@@ -602,7 +602,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new SequenceOutOfRangeError(NameInfo.EmptyName) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Sequence_Having_Both_Min_And_Max_Equal>(
                 new[] { "one", "two", "this-is-too-much" });
 
@@ -619,7 +619,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Nullables>(
                 arguments);
 
@@ -636,7 +636,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Nullables>(
                 arguments);
 
@@ -652,7 +652,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_FSharpOption>(
                 arguments);
 
@@ -671,7 +671,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_FSharpOption>(
                 arguments);
 
@@ -688,7 +688,7 @@ namespace CommandLine.Tests.Unit.Core
         [Fact]
         public void Min_constraint_set_to_zero_throws_exception()
         {
-            // Exercize system 
+            // Exercise system 
             Action test = () => InvokeBuild<Options_With_Min_Set_To_Zero>(
                 new string[] { });
 
@@ -699,7 +699,7 @@ namespace CommandLine.Tests.Unit.Core
         [Fact]
         public void Max_constraint_set_to_zero_throws_exception()
         {
-            // Exercize system 
+            // Exercise system 
             Action test = () => InvokeBuild<Options_With_Max_Set_To_Zero>(
                 new string[] { });
 
@@ -710,7 +710,7 @@ namespace CommandLine.Tests.Unit.Core
         [Fact]
         public void Min_and_max_constraint_set_to_zero_throws_exception()
         {
-            // Exercize system 
+            // Exercise system 
             Action test = () => InvokeBuild<Options_With_Both_Min_And_Max_Set_To_Zero>(
                 new string[] { });
 
@@ -726,7 +726,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData(new[] { "--interactive", "--weburl=wvalue", "--verbose", "--ftpurl=wvalue" }, ParserResultType.NotParsed, 2)]
         public void Empty_set_options_allowed_with_mutually_exclusive_sets(string[] arguments, ParserResultType type, int expected)
         {
-            // Exercize system
+            // Exercise system
             var result = InvokeBuild<Options_With_Named_And_Empty_Sets>(
                 arguments);
 
@@ -745,7 +745,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData(new[] { "--stringvalue", "abc", "--stringvalue", "def" }, 1)]
         public void Specifying_options_two_or_more_times_generates_RepeatedOptionError(string[] arguments, int expected)
         {
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 arguments);
 
@@ -757,7 +757,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData(new[] { "-s", "abc", "-s", "def" }, 1)]
         public void Specifying_options_two_or_more_times_with_short_options_generates_RepeatedOptionError(string[] arguments, int expected)
         {
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 arguments);
 
@@ -769,7 +769,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData(new[] { "--shortandlong", "abc", "--shortandlong", "def" }, 1)]
         public void Specifying_options_two_or_more_times_with_long_options_generates_RepeatedOptionError(string[] arguments, int expected)
         {
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 arguments);
 
@@ -781,7 +781,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData(new[] { "-s", "abc", "--shortandlong", "def" }, 1)]
         public void Specifying_options_two_or_more_times_with_mixed_short_long_options_generates_RepeatedOptionError(string[] arguments, int expected)
         {
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 arguments);
 
@@ -794,7 +794,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData(new[] { "--inputfile", "file2.txt" }, "file2.txt")]
         public void Can_define_options_on_explicit_interface_properties(string[] arguments, string expected) 
             {
-            // Exercize system
+            // Exercise system
             var result = InvokeBuild<Options_With_Only_Explicit_Interface>(
                 arguments);
 
@@ -808,7 +808,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData(new[] { "--inputfile", "file2.txt" }, "file2.txt")]
         public void Can_define_options_on_interface_properties(string[] arguments, string expected)
         {
-            // Exercize system
+            // Exercise system
             var result = InvokeBuild<Options_With_Interface>(
                 arguments);
 
@@ -826,7 +826,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData(new string[] { }, ParserResultType.NotParsed, 2)]
         public void Enforce_required_within_mutually_exclusive_set_only(string[] arguments, ParserResultType type, int expected)
         {
-            // Exercize system
+            // Exercise system
             var result = InvokeBuild<Options_With_Two_Option_Required_Set_To_True_And_Two_Sets>(
                 arguments);
 
@@ -847,7 +847,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Required_Set_To_True_For_Values>(
                 arguments);
 
@@ -861,7 +861,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Scalar_Value_And_Adjacent_SequenceString>(
                 arguments);
 
@@ -875,7 +875,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new Simple_Options { StringValue = "strval0", IntSequence = new[] { 9, 7, 8 }, BoolValue = true, LongValue = 9876543210L };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 new[] { "--stringvalue=strval0", "-i", "9", "7", "8", "-x", "9876543210" });
 
@@ -892,7 +892,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData(new[] { "--long", "9", "--int=11" }, 1)]
         public void Breaking_required_constraint_generate_MissingRequiredOptionError(string[] arguments, int expected)
         {
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Two_Options_Having_Required_Set_To_True>(
                 arguments);
 
@@ -907,7 +907,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuildImmutable<Immutable_Simple_Options>(
                 arguments);
 
@@ -922,7 +922,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             Action act = () => InvokeBuildImmutable<Immutable_Simple_Options_Invalid_Ctor_Args>(
                 arguments);
 
@@ -938,7 +938,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new Options_With_Uri_And_SimpleType { EndPoint = new Uri("http://localhost/test/"), MyValue = new MySimpleType("custom-value") };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Uri_And_SimpleType>(
                 new[] { "--endpoint=http://localhost/test/", "custom-value" });
 
@@ -952,7 +952,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new[] { new SetValueExceptionError(new NameInfo("e", ""), new ArgumentException(), "bad") };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Property_Throwing_Exception>(
                 new[] { "-e", "bad" });
 
@@ -968,7 +968,7 @@ namespace CommandLine.Tests.Unit.Core
             var expectedResult = new[] { new SetValueExceptionError(new NameInfo("", name),
                 new ArgumentException(InvalidAttributeConfigurationError.ErrorMessage), "bad") };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_InvalidDefaults>(
                 new[] { name, "bad" });
 
@@ -990,7 +990,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(
                 arguments);
 
@@ -1004,7 +1004,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(arguments, autoHelp: false);
 
             // Verify outcome
@@ -1021,7 +1021,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Custom_Help_Option>(arguments, autoHelp: false);
 
             // Verify outcome
@@ -1035,7 +1035,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options>(arguments, autoVersion: false);
 
             // Verify outcome
@@ -1052,7 +1052,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Custom_Version_Option>(arguments, autoVersion: false);
 
             // Verify outcome
@@ -1066,7 +1066,7 @@ namespace CommandLine.Tests.Unit.Core
         {
             // Fixture setup in attributes
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Guid>(
                 arguments);
 
@@ -1080,7 +1080,7 @@ namespace CommandLine.Tests.Unit.Core
             // Fixture setup
             var expectedResult = new Options_With_TimeSpan { Duration = TimeSpan.FromMinutes(42) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_TimeSpan>(
                 new[] { "--duration=00:42:00" });
 
@@ -1092,7 +1092,7 @@ namespace CommandLine.Tests.Unit.Core
         [Fact]
         public void Should_not_parse_quoted_TimeSpan()
         {
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_TimeSpan>(new[] { "--duration=\"00:42:00\"" });
 
             var outcome = result as NotParsed<Options_With_TimeSpan>;
@@ -1134,7 +1134,7 @@ namespace CommandLine.Tests.Unit.Core
             };
             var expectedResult = new[] { new MissingGroupOptionError("err-group", optionNames) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Group>(
                 new[] { "-v 10.42" });
 
@@ -1162,7 +1162,7 @@ namespace CommandLine.Tests.Unit.Core
                 new MissingGroupOptionError("err-group2", optionNames2)
             };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Multiple_Groups>(
                 new[] { "-v 10.42" });
 
@@ -1176,7 +1176,7 @@ namespace CommandLine.Tests.Unit.Core
         [InlineData("-v", "10.5", "--option2", "test2")]
         public void Options_In_Group_With_Values_Does_Not_Generate_MissingGroupOptionError(params string[] args)
         {
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Options_With_Group>(args);
 
             // Verify outcome
@@ -1194,7 +1194,7 @@ namespace CommandLine.Tests.Unit.Core
             };
             var expectedResult = new[] { new MissingGroupOptionError("string-group", optionNames) };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_Required_OptionGroup>(new string[] { "-x" });
 
             // Verify outcome
@@ -1214,7 +1214,7 @@ namespace CommandLine.Tests.Unit.Core
                 new MissingRequiredOptionError(new NameInfo("s", "shortandlong"))
             };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_OptionGroup_WithDefaultValue>(new string[] { "-x" });
 
             // Verify outcome
@@ -1227,7 +1227,7 @@ namespace CommandLine.Tests.Unit.Core
         [Fact]
         public void Options_In_Group_Use_Option_Default_Value_When_Available()
         {
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_OptionGroup_WithOptionDefaultValue>(new string[] { "-x" });
 
             // Verify outcome
@@ -1243,7 +1243,7 @@ namespace CommandLine.Tests.Unit.Core
                 new GroupOptionAmbiguityError(new NameInfo("s", "shortandlong"))
             };
 
-            // Exercize system 
+            // Exercise system 
             var result = InvokeBuild<Simple_Options_With_OptionGroup_MutuallyExclusiveSet>(new string[] { "-x" });
 
             // Verify outcome

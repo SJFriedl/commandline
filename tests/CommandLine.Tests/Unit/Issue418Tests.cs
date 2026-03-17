@@ -17,7 +17,7 @@ namespace CommandLine.Tests.Unit
             var help = new StringWriter();
             var sut = new Parser(config => config.HelpWriter = help);
 
-            // Exercize system
+            // Exercise system
             sut.ParseArguments<Simple_Options>(new[] { "--version" });
             var result = help.ToString();           
             // Verify outcome
