@@ -9,25 +9,18 @@ namespace CommandLine.Core
 {
     sealed class OptionSpecification : Specification
     {
-        private readonly string shortName;
-        private readonly string longName;
-        private readonly char separator;
-        private readonly string setName;
-        private readonly string group;
-        private readonly bool flagCounter;
-
         public OptionSpecification(string shortName, string longName, bool required, string setName, Maybe<int> min, Maybe<int> max,
             char separator, Maybe<object> defaultValue, string helpText, string metaValue, IEnumerable<string> enumValues,
             Type conversionType, TargetType targetType, string group, bool flagCounter = false, bool hidden = false)
             : base(SpecificationType.Option,
                  required, min, max, defaultValue, helpText, metaValue, enumValues, conversionType, conversionType == typeof(int) && flagCounter ? TargetType.Switch : targetType, hidden)
         {
-            this.shortName = shortName;
-            this.longName = longName;
-            this.separator = separator;
-            this.setName = setName;
-            this.group = group;
-            this.flagCounter = flagCounter;
+            this.ShortName = shortName;
+            this.LongName = longName;
+            this.Separator = separator;
+            this.SetName = setName;
+            this.Group = group;
+            this.FlagCounter = flagCounter;
         }
 
         public static OptionSpecification FromAttribute(OptionAttribute attribute, Type conversionType, IEnumerable<string> enumValues)
@@ -57,37 +50,19 @@ namespace CommandLine.Core
                 '\0', Maybe.Nothing<object>(), helpText, metaValue, Enumerable.Empty<string>(), typeof(bool), TargetType.Switch, string.Empty, false, hidden);
         }
 
-        public string ShortName
-        {
-            get { return shortName; }
-        }
+        public string ShortName { get; }
 
-        public string LongName
-        {
-            get { return longName; }
-        }
+        public string LongName { get; }
 
-        public char Separator
-        {
-            get { return separator; }
-        }
+        public char Separator { get; }
 
-        public string SetName
-        {
-            get { return setName; }
-        }
+        public string SetName { get; }
 
-        public string Group
-        {
-            get { return group; }
-        }
+        public string Group { get; }
 
         /// <summary>
         /// Whether this is an int option that counts how many times a flag was set rather than taking a value on the command line
         /// </summary>
-        public bool FlagCounter
-        {
-            get { return flagCounter; }
-        }
+        public bool FlagCounter { get; }
     }
 }

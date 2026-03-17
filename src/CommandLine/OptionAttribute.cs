@@ -12,22 +12,17 @@ namespace CommandLine
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public class OptionAttribute : BaseAttribute
     {
-        private readonly string longName;
-        private readonly string shortName;
         private string setName;
-        private bool flagCounter;
-        private char separator;
-        private string group=string.Empty;
 
         private OptionAttribute(string shortName, string longName) : base()
         {
             if (shortName == null) throw new ArgumentNullException(nameof(shortName));
             if (longName == null) throw new ArgumentNullException(nameof(longName));
 
-            this.shortName = shortName;
-            this.longName = longName;
+            this.ShortName = shortName;
+            this.LongName = longName;
             setName = string.Empty;
-            separator = '\0';
+            Separator = '\0';
         }
 
         /// <summary>
@@ -70,25 +65,19 @@ namespace CommandLine
         /// <summary>
         /// Gets long name of this command line option. This name is usually a single english word.
         /// </summary>
-        public string LongName
-        {
-            get { return longName; }
-        }
+        public string LongName { get; }
 
         /// <summary>
         /// Gets a short name of this command line option, made of one character.
         /// </summary>
-        public string ShortName
-        {
-            get { return shortName; }
-        }
+        public string ShortName { get; }
 
         /// <summary>
         /// Gets or sets the option's mutually exclusive set name.
         /// </summary>
         public string SetName
         {
-            get { return setName; }
+            get => setName;
             set
             {
                 if (value == null) throw new ArgumentNullException(nameof(value));
@@ -101,29 +90,17 @@ namespace CommandLine
         /// If true, this is an int option that counts how many times a flag was set (e.g. "-v -v -v" or "-vvv" would return 3).
         /// The property must be of type int (signed 32-bit integer).
         /// </summary>
-        public bool FlagCounter
-        {
-            get { return flagCounter; }
-            set { flagCounter = value; }
-        }
+        public bool FlagCounter { get; set; }
 
         /// <summary>
         /// When applying attribute to <see cref="System.Collections.Generic.IEnumerable{T}"/> target properties,
         /// it allows you to split an argument and consume its content as a sequence.
         /// </summary>
-        public char Separator
-        {
-            get { return separator; }
-            set { separator = value; }
-        }
+        public char Separator { get; set; }
 
         /// <summary>
         /// Gets or sets the option group name. When one or more options are grouped, at least one of them should have value. Required rules are ignored.
         /// </summary>
-        public string Group
-        {
-            get { return group; }
-            set { group = value; }
-        }
+        public string Group { get; set; } = string.Empty;
     }
 }

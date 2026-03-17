@@ -7,31 +7,18 @@ namespace CommandLine.Core
 {
     struct TypeDescriptor
     {
-        private readonly TargetType targetType;
-        private readonly Maybe<int> maxItems;
-        private readonly Maybe<TypeDescriptor> nextValue;
-
         private TypeDescriptor(TargetType targetType, Maybe<int> maxItems, Maybe<TypeDescriptor> nextValue = null)
         {
-            this.targetType = targetType;
-            this.maxItems = maxItems;
-            this.nextValue = nextValue;
+            this.TargetType = targetType;
+            this.MaxItems = maxItems;
+            this.NextValue = nextValue;
         }
 
-        public TargetType TargetType
-        {
-            get { return targetType; }
-        }
+        public TargetType TargetType { get; }
 
-        public Maybe<int> MaxItems
-        {
-            get { return maxItems; }
-        }
+        public Maybe<int> MaxItems { get; }
 
-        public Maybe<TypeDescriptor> NextValue
-        {
-            get { return this.nextValue; }
-        }
+        public Maybe<TypeDescriptor> NextValue { get; }
 
         public static TypeDescriptor Create(TargetType tag, Maybe<int> maximumItems, TypeDescriptor next = default(TypeDescriptor))
         {

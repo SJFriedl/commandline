@@ -99,17 +99,9 @@ namespace CommandLine.Text
         private const int TotalOptionPadding = OptionToHelpTextSeparatorWidth + OptionPrefixWidth;
         private readonly StringBuilder preOptionsHelp;
         private readonly StringBuilder postOptionsHelp;
-        private readonly SentenceBuilder sentenceBuilder;
-        private int maximumDisplayWidth;
         private string heading;
         private string copyright;
-        private bool additionalNewLineAfterOption;
         private StringBuilder optionsHelp;
-        private bool addDashesToOption;
-        private bool addEnumValuesToHelpText;
-        private bool autoHelp;
-        private bool autoVersion;
-        private bool addNewLineBetweenHelpSections;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandLine.Text.HelpText"/> class.
@@ -183,21 +175,21 @@ namespace CommandLine.Text
             postOptionsHelp = new StringBuilder(BuilderCapacity);
             try
             {
-                maximumDisplayWidth = Console.WindowWidth;
-                if (maximumDisplayWidth < 1)
+                MaximumDisplayWidth = Console.WindowWidth;
+                if (MaximumDisplayWidth < 1)
                 {
-                    maximumDisplayWidth = DefaultMaximumLength;
+                    MaximumDisplayWidth = DefaultMaximumLength;
                 }
             }
             catch (IOException)
             {
-                maximumDisplayWidth = DefaultMaximumLength;
+                MaximumDisplayWidth = DefaultMaximumLength;
             }
-            this.sentenceBuilder = sentenceBuilder;
+            this.SentenceBuilder = sentenceBuilder;
             this.heading = heading;
             this.copyright = copyright;
-            this.autoHelp = true;
-            this.autoVersion = true;
+            this.AutoHelp = true;
+            this.AutoVersion = true;
         }
 
         /// <summary>
@@ -206,7 +198,7 @@ namespace CommandLine.Text
         /// </summary>
         public string Heading
         {
-            get { return heading; }
+            get => heading;
             set
             {
                 if (value == null) throw new ArgumentNullException(nameof(value));
@@ -221,7 +213,7 @@ namespace CommandLine.Text
         /// </summary>
         public string Copyright
         {
-            get { return copyright; }
+            get => copyright;
             set
             {
                 if (value == null) throw new ArgumentNullException(nameof(value));
@@ -234,74 +226,43 @@ namespace CommandLine.Text
         /// Gets or sets the maximum width of the display.  This determines word wrap when displaying the text.
         /// </summary>
         /// <value>The maximum width of the display.</value>
-        public int MaximumDisplayWidth
-        {
-            get { return maximumDisplayWidth; }
-            set { maximumDisplayWidth = value; }
-        }
+        public int MaximumDisplayWidth { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the format of options should contain dashes.
         /// It modifies behavior of <see cref="AddOptions{T}(ParserResult{T})"/> method.
         /// </summary>
-        public bool AddDashesToOption
-        {
-            get { return addDashesToOption; }
-            set { addDashesToOption = value; }
-        }
+        public bool AddDashesToOption { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether to add a line after the description of the specification.
         /// </summary>
-        public bool AdditionalNewLineAfterOption
-        {
-            get { return additionalNewLineAfterOption; }
-            set { additionalNewLineAfterOption = value; }
-        }
+        public bool AdditionalNewLineAfterOption { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether to add newlines between help sections.
         /// </summary>
-        public bool AddNewLineBetweenHelpSections
-        {
-            get { return addNewLineBetweenHelpSections; }
-            set { addNewLineBetweenHelpSections = value; }
-        }
+        public bool AddNewLineBetweenHelpSections { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether to add the values of an enum after the description of the specification.
         /// </summary>
-        public bool AddEnumValuesToHelpText
-        {
-            get { return addEnumValuesToHelpText; }
-            set { addEnumValuesToHelpText = value; }
-        }
+        public bool AddEnumValuesToHelpText { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether implicit option or verb 'help' should be supported.
         /// </summary>
-        public bool AutoHelp
-        {
-            get { return autoHelp; }
-            set { autoHelp = value; }
-        }
+        public bool AutoHelp { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether implicit option or verb 'version' should be supported.
         /// </summary>
-        public bool AutoVersion
-        {
-            get { return autoVersion; }
-            set { autoVersion = value; }
-        }
+        public bool AutoVersion { get; set; }
 
         /// <summary>
         /// Gets the <see cref="SentenceBuilder"/> instance specified in constructor.
         /// </summary>
-        public SentenceBuilder SentenceBuilder
-        {
-            get { return sentenceBuilder; }
-        }
+        public SentenceBuilder SentenceBuilder { get; }
 
         /// <summary>
         /// Creates a new instance of the <see cref="CommandLine.Text.HelpText"/> class using common defaults.
@@ -817,9 +778,9 @@ namespace CommandLine.Text
             var specs = type.GetSpecifications(Specification.FromProperty);
             var optionSpecs = specs
                 .OfType<OptionSpecification>();
-            if (autoHelp)
+            if (AutoHelp)
                 optionSpecs = optionSpecs.Concat(new[] { MakeHelpEntry() });
-            if (autoVersion)
+            if (AutoVersion)
                 optionSpecs = optionSpecs.Concat(new[] { MakeVersionEntry() });
             var valueSpecs = specs
                 .OfType<ValueSpecification>()
@@ -855,9 +816,9 @@ namespace CommandLine.Text
                                       verbTuple.Item1.IsDefault ? "(Default Verb) " + verbTuple.Item1.HelpText : verbTuple.Item1.HelpText,  //Default verb
                                       string.Empty,
                                       verbTuple.Item1.Hidden);
-            if (autoHelp)
+            if (AutoHelp)
                 optionSpecs = optionSpecs.Concat(new[] { MakeHelpEntry() });
-            if (autoVersion)
+            if (AutoVersion)
                 optionSpecs = optionSpecs.Concat(new[] { MakeVersionEntry() });
             return optionSpecs;
         }
@@ -910,7 +871,7 @@ namespace CommandLine.Text
                 string.Empty,
                 "help",
                 false,
-                sentenceBuilder.HelpCommandText(AddDashesToOption),
+                SentenceBuilder.HelpCommandText(AddDashesToOption),
                 string.Empty,
                 false);
         }
@@ -921,7 +882,7 @@ namespace CommandLine.Text
                 string.Empty,
                 "version",
                 false,
-                sentenceBuilder.VersionCommandText(AddDashesToOption),
+                SentenceBuilder.VersionCommandText(AddDashesToOption),
                 string.Empty,
                 false);
         }
@@ -966,7 +927,7 @@ namespace CommandLine.Text
 
             var optionHelpText = specification.HelpText;
 
-            if (addEnumValuesToHelpText && specification.EnumValues.Any())
+            if (AddEnumValuesToHelpText && specification.EnumValues.Any())
                 optionHelpText += " Valid values: " + string.Join(", ", specification.EnumValues);
 
             specification.DefaultValue.Do(
@@ -989,7 +950,7 @@ namespace CommandLine.Text
             optionsHelp
                 .Append(indented)
                 .Append(Environment.NewLine)
-                .AppendWhen(additionalNewLineAfterOption, Environment.NewLine);
+                .AppendWhen(AdditionalNewLineAfterOption, Environment.NewLine);
 
             return this;
         }
@@ -1001,14 +962,14 @@ namespace CommandLine.Text
                     .MapIf(
                         specification.ShortName.Length > 0,
                         it => it
-                            .AppendWhen(addDashesToOption, '-')
+                            .AppendWhen(AddDashesToOption, '-')
                             .AppendFormat("{0}", specification.ShortName)
                             .AppendFormatWhen(specification.MetaValue.Length > 0, " {0}", specification.MetaValue)
                             .AppendWhen(specification.LongName.Length > 0, ", "))
                     .MapIf(
                         specification.LongName.Length > 0,
                         it => it
-                            .AppendWhen(addDashesToOption, "--")
+                            .AppendWhen(AddDashesToOption, "--")
                             .AppendFormat("{0}", specification.LongName)
                             .AppendFormatWhen(specification.MetaValue.Length > 0, "={0}", specification.MetaValue))
                     .ToString();

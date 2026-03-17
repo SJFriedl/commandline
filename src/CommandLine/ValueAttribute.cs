@@ -10,7 +10,6 @@ namespace CommandLine
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public /*sealed*/ class ValueAttribute : BaseAttribute
     {
-        private readonly int index;
         private string metaName; 
 
         /// <summary>
@@ -18,28 +17,22 @@ namespace CommandLine
         /// </summary>
         public ValueAttribute(int index) : base()
         {
-            this.index = index;
+            this.Index = index;
             this.metaName = string.Empty;
         }
 
         /// <summary>
         /// Gets the position this option has on the command line.
         /// </summary>
-        public int Index
-        {
-            get { return index; }
-        }
+        public int Index { get; }
 
         /// <summary>
         /// Gets or sets name of this positional value specification.
         /// </summary>
         public string MetaName
         {
-            get { return metaName; }
-            set
-            {
-                metaName = value ?? throw new ArgumentNullException(nameof(value));
-            }
+            get => metaName;
+            set => metaName = value ?? throw new ArgumentNullException(nameof(value));
         }
     }
 }

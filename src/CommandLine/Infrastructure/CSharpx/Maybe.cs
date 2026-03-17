@@ -29,17 +29,15 @@ namespace CSharpx
 #endif
     abstract class Maybe<T>
     {
-        private readonly MaybeType tag;
-
         protected Maybe(MaybeType tag)
         {
-            this.tag = tag;
+            this.Tag = tag;
         }
 
         /// <summary>
         /// Type discriminator.
         /// </summary>
-        public MaybeType Tag { get { return tag; } }
+        public MaybeType Tag { get; }
 
         #region Basic Match Methods
         /// <summary>
@@ -68,7 +66,7 @@ namespace CSharpx
 #if !CSX_MAYBE_INTERNAL
     public
 #endif
-        sealed class Nothing<T> : Maybe<T>
+    sealed class Nothing<T> : Maybe<T>
     {
         internal Nothing()
             : base(MaybeType.Nothing)
@@ -82,23 +80,18 @@ namespace CSharpx
 #if !CSX_MAYBE_INTERNAL
     public
 #endif
-        sealed class Just<T> : Maybe<T>
+    sealed class Just<T> : Maybe<T>
     {
-        private readonly T value;
-
         internal Just(T value)
             : base(MaybeType.Just)
         {
-            this.value = value;
+            this.Value = value;
         }
 
         /// <summary>
         /// The wrapped value.
         /// </summary>
-        public T Value
-        {
-            get { return value; }
-        }
+        public T Value { get; }
     }
 
     /// <summary>

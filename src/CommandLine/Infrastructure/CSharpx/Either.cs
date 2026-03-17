@@ -26,17 +26,12 @@ namespace CSharpx
 #endif
     abstract class Either<TLeft, TRight>
     {
-        private readonly EitherType tag;
-
         protected Either(EitherType tag)
         {
-            this.tag = tag;
+            this.Tag = tag;
         }
 
-        public EitherType Tag
-        {
-            get { return this.tag; }
-        }
+        public EitherType Tag { get; }
 
         #region Basic Match Methods
         public bool MatchLeft(out TLeft value)
@@ -58,18 +53,13 @@ namespace CSharpx
 #endif
     sealed class Left<TLeft, TRight> : Either<TLeft, TRight>
     {
-        private readonly TLeft value;
-
         internal Left(TLeft value)
             : base(EitherType.Left)
         {
-            this.value = value;
+            this.Value = value;
         }
 
-        public TLeft Value
-        {
-            get { return value; }
-        }
+        public TLeft Value { get; }
     }
 
 #if !CSX_EITHER_INTERNAL
@@ -77,18 +67,13 @@ namespace CSharpx
 #endif
     sealed class Right<TLeft, TRight> : Either<TLeft, TRight>
     {
-        private readonly TRight value;
-
         internal Right(TRight value)
             : base(EitherType.Right)
         {
-            this.value = value;
+            this.Value = value;
         }
 
-        public TRight Value
-        {
-            get { return value; }
-        }
+        public TRight Value { get; }
     }
     #endregion
 

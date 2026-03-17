@@ -93,9 +93,6 @@ namespace CommandLine
     /// <remarks>All errors are defined within the system. There's no reason to create custom derivate types.</remarks>
     public abstract class Error : IEquatable<Error>
     {
-        private readonly ErrorType tag;
-        private readonly bool stopsProcessing;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandLine.Error"/> class.
         /// </summary>
@@ -103,8 +100,8 @@ namespace CommandLine
         /// <param name="stopsProcessing">Tells if error stops parsing process.</param>
         protected internal Error(ErrorType tag, bool stopsProcessing)
         {
-            this.tag = tag;
-            this.stopsProcessing = stopsProcessing;
+            this.Tag = tag;
+            this.StopsProcessing = stopsProcessing;
         }
 
         /// <summary>
@@ -119,19 +116,13 @@ namespace CommandLine
         /// <summary>
         /// Error type discriminator, defined as <see cref="CommandLine.ErrorType"/> enumeration.
         /// </summary>
-        public ErrorType Tag
-        {
-            get { return tag; }
-        }
+        public ErrorType Tag { get; }
 
         /// <summary>
         /// Tells if error stops parsing process.
         /// Filtered by <see cref="CommandLine.ErrorExtensions.OnlyMeaningfulOnes(System.Collections.Generic.IEnumerable{Error})"/>.
         /// </summary>
-        public bool StopsProcessing
-        {
-            get { return stopsProcessing; }
-        }
+        public bool StopsProcessing { get; }
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object"/> is equal to the current <see cref="System.Object"/>.
@@ -179,8 +170,6 @@ namespace CommandLine
     /// </summary>
     public abstract class TokenError : Error, IEquatable<TokenError>
     {
-        private readonly string token;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandLine.TokenError"/> class.
         /// </summary>
@@ -191,16 +180,13 @@ namespace CommandLine
         {
             if (token == null) throw new ArgumentNullException(nameof(token));
 
-            this.token = token;
+            this.Token = token;
         }
 
         /// <summary>
         /// The string containing the token text.
         /// </summary>
-        public string Token
-        {
-            get { return token; }
-        }
+        public string Token { get; }
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object"/> is equal to the current <see cref="System.Object"/>.
@@ -259,8 +245,6 @@ namespace CommandLine
     /// </summary>
     public abstract class NamedError : Error, IEquatable<NamedError>
     {
-        private readonly NameInfo nameInfo;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandLine.NamedError"/> class.
         /// </summary>
@@ -270,16 +254,13 @@ namespace CommandLine
         protected internal NamedError(ErrorType tag, NameInfo nameInfo)
             : base(tag)
         {
-            this.nameInfo = nameInfo;
+            this.NameInfo = nameInfo;
         }
 
         /// <summary>
         /// Name information relative to this error instance.
         /// </summary>
-        public NameInfo NameInfo
-        {
-            get { return nameInfo; }
-        }
+        public NameInfo NameInfo { get; }
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object"/> is equal to the current <see cref="System.Object"/>.
@@ -360,21 +341,16 @@ namespace CommandLine
     /// </summary>
     public sealed class MutuallyExclusiveSetError : NamedError
     {
-        private readonly string setName;
-
         internal MutuallyExclusiveSetError(NameInfo nameInfo, string setName)
             : base(ErrorType.MutuallyExclusiveSetError, nameInfo)
         {
-            this.setName = setName;
+            this.SetName = setName;
         }
 
         /// <summary>
         /// Option's set name.
         /// </summary>
-        public string SetName
-        {
-            get { return setName; }
-        }
+        public string SetName { get; }
     }
 
     /// <summary>
@@ -437,41 +413,28 @@ namespace CommandLine
     /// </summary>
     public sealed class HelpVerbRequestedError : Error
     {
-        private readonly string verb;
-        private readonly Type type;
-        private readonly bool matched;
-
         internal HelpVerbRequestedError(string verb, Type type, bool matched)
             : base(ErrorType.HelpVerbRequestedError, true)
         {
-            this.verb = verb;
-            this.type = type;
-            this.matched = matched;
+            this.Verb = verb;
+            this.Type = type;
+            this.Matched = matched;
         }
 
         /// <summary>
         /// Verb command string.
         /// </summary>
-        public string Verb
-        {
-            get { return verb; }
-        }
+        public string Verb { get; }
 
         /// <summary>
         /// <see cref="System.Type"/> of verb command.
         /// </summary>
-        public Type Type
-        {
-            get { return type; }
-        }
+        public Type Type { get; }
 
         /// <summary>
         /// <value>true</value> if verb command is found; otherwise <value>false</value>.
         /// </summary>
-        public bool Matched
-        {
-            get { return matched; }
-        }
+        public bool Matched { get; }
     }
 
     /// <summary>
@@ -501,31 +464,22 @@ namespace CommandLine
     /// </summary>
     public sealed class SetValueExceptionError : NamedError
     {
-        private readonly Exception exception;
-        private readonly object value;
-
         internal SetValueExceptionError(NameInfo nameInfo, Exception exception, object value)
             : base(ErrorType.SetValueExceptionError, nameInfo)
         {
-            this.exception = exception;
-            this.value = value;
+            this.Exception = exception;
+            this.Value = value;
         }
 
         /// <summary>
         /// The expection thrown from Property.SetValue
         /// </summary>
-        public Exception Exception
-        {
-            get { return exception; }
-        }
+        public Exception Exception { get; }
 
         /// <summary>
         /// The value that had to be set to the property
         /// </summary>
-        public object Value
-        {
-            get { return value; }
-        }
+        public object Value { get; }
     }
 
     /// <summary>
@@ -545,25 +499,16 @@ namespace CommandLine
     {
         public const string ErrorMessage = "At least one option in a group must have value.";
 
-        private readonly string group;
-        private readonly IEnumerable<NameInfo> names;
-
         internal MissingGroupOptionError(string group, IEnumerable<NameInfo> names)
             : base(ErrorType.MissingGroupOptionError)
         {
-            this.group = group;
-            this.names = names;
+            this.Group = group;
+            this.Names = names;
         }
 
-        public string Group
-        {
-            get { return group; }
-        }
+        public string Group { get; }
 
-        public IEnumerable<NameInfo> Names
-        {
-            get { return names; }
-        }
+        public IEnumerable<NameInfo> Names { get; }
 
         public new bool Equals(Error obj)
         {

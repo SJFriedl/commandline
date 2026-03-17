@@ -11,7 +11,6 @@ namespace CommandLine
     {
         private int min;
         private int max;
-        private object @default;
         private Infrastructure.LocalizableAttributeProperty helpText;
         private string metaValue;
         private Type resourceType;
@@ -44,7 +43,7 @@ namespace CommandLine
         /// <remarks>If not set, no lower range is enforced.</remarks>
         public int Min
         {
-            get { return min; }
+            get => min;
             set
             {
                 if (value < 0)
@@ -63,7 +62,7 @@ namespace CommandLine
         /// <remarks>If not set, no upper range is enforced.</remarks>
         public int Max
         {
-            get { return max; }
+            get => max;
             set
             {
                 if (value < 0)
@@ -78,14 +77,7 @@ namespace CommandLine
         /// <summary>
         /// Gets or sets mapped property default value.
         /// </summary>
-        public object Default
-        {
-            get { return @default; }
-            set
-            {
-                @default = value;
-            }
-        }
+        public object Default { get; set; }
 
         /// <summary>
         /// Gets or sets a short description of this command line option. Usually a sentence summary.
@@ -101,7 +93,7 @@ namespace CommandLine
         /// </summary>
         public string MetaValue
         {
-            get { return metaValue; }
+            get => metaValue;
             set
             {
                 if (value == null)
@@ -127,7 +119,7 @@ namespace CommandLine
         /// </summary>
         public Type ResourceType
         {
-            get { return resourceType; }
+            get => resourceType;
             set
             {
                 resourceType =

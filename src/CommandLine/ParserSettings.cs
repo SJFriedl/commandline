@@ -25,7 +25,6 @@ namespace CommandLine
         private bool autoVersion;
         private CultureInfo parsingCulture;
         private Maybe<bool> enableDashDash;
-        private int maximumDisplayWidth;
         private Maybe<bool> allowMultiInstance;
         private bool getoptMode;
         private Maybe<bool> posixlyCorrect;
@@ -40,7 +39,7 @@ namespace CommandLine
             autoHelp = true;
             autoVersion = true;
             parsingCulture = CultureInfo.InvariantCulture;
-            maximumDisplayWidth = GetWindowWidth();
+            MaximumDisplayWidth = GetWindowWidth();
             getoptMode = false;
             enableDashDash = Maybe.Nothing<bool>();
             allowMultiInstance = Maybe.Nothing<bool>();
@@ -84,7 +83,7 @@ namespace CommandLine
         /// </summary>
         public bool CaseSensitive
         {
-            get { return caseSensitive; }
+            get => caseSensitive;
             set { PopsicleSetter.Set(Consumed, ref caseSensitive, value); }
         }
 
@@ -94,7 +93,7 @@ namespace CommandLine
         /// </summary>
         public bool CaseInsensitiveEnumValues
         {
-            get { return caseInsensitiveEnumValues; }
+            get => caseInsensitiveEnumValues;
             set { PopsicleSetter.Set(Consumed, ref caseInsensitiveEnumValues, value); }
         }
 
@@ -106,7 +105,7 @@ namespace CommandLine
         /// </remarks>
         public CultureInfo ParsingCulture
         {
-            get { return parsingCulture; }
+            get => parsingCulture;
             set
             {
                 if (value == null) throw new ArgumentNullException(nameof(value));
@@ -124,7 +123,7 @@ namespace CommandLine
         /// </remarks>
         public TextWriter HelpWriter
         {
-            get { return helpWriter; }
+            get => helpWriter;
             set { PopsicleSetter.Set(Consumed, ref helpWriter, value); }
         }
 
@@ -141,7 +140,7 @@ namespace CommandLine
         /// </remarks>
         public bool IgnoreUnknownArguments
         {
-            get { return ignoreUnknownArguments; }
+            get => ignoreUnknownArguments;
             set { PopsicleSetter.Set(Consumed, ref ignoreUnknownArguments, value); }
         }
 
@@ -150,7 +149,7 @@ namespace CommandLine
         /// </summary>
         public bool AutoHelp
         {
-            get { return autoHelp; }
+            get => autoHelp;
             set { PopsicleSetter.Set(Consumed, ref autoHelp, value); }
         }
 
@@ -159,7 +158,7 @@ namespace CommandLine
         /// </summary>
         public bool AutoVersion
         {
-            get { return autoVersion; }
+            get => autoVersion;
             set { PopsicleSetter.Set(Consumed, ref autoVersion, value); }
         }
 
@@ -177,11 +176,7 @@ namespace CommandLine
         /// <summary>
         /// Gets or sets the maximum width of the display.  This determines word wrap when displaying the text.
         /// </summary>
-        public int MaximumDisplayWidth
-        {
-            get { return maximumDisplayWidth; }
-            set { maximumDisplayWidth = value; }
-        }
+        public int MaximumDisplayWidth { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether options are allowed to be specified multiple times.
@@ -212,15 +207,10 @@ namespace CommandLine
             set => PopsicleSetter.Set(Consumed, ref posixlyCorrect, Maybe.Just(value));
         }
 
-        internal StringComparer NameComparer
-        {
-            get
-            {
-                return CaseSensitive
-                    ? StringComparer.Ordinal
-                    : StringComparer.OrdinalIgnoreCase;
-            }
-        }
+        internal StringComparer NameComparer =>
+            CaseSensitive
+                ? StringComparer.Ordinal
+                : StringComparer.OrdinalIgnoreCase;
 
         internal bool Consumed { get; set; }
 

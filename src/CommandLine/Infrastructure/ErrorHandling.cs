@@ -31,17 +31,12 @@ namespace RailwaySharp.ErrorHandling
 #endif 
     abstract class Result<TSuccess, TMessage>
     {
-        private readonly ResultType _tag;
-
         protected Result(ResultType tag)
         {
-            _tag = tag;
+            Tag = tag;
         }
 
-        public ResultType Tag
-        {
-            get { return _tag; }
-        }
+        public ResultType Tag { get; }
 
         public override string ToString()
         {
@@ -102,20 +97,15 @@ namespace RailwaySharp.ErrorHandling
 #endif
     sealed class Bad<TSuccess, TMessage> : Result<TSuccess, TMessage>
     {
-        private readonly IEnumerable<TMessage> _messages;
-
         public Bad(IEnumerable<TMessage> messages)
             : base(ResultType.Bad)
         {
             if (messages == null) throw new ArgumentException(nameof(messages));
 
-            _messages = messages;
+            Messages = messages;
         }
 
-        public IEnumerable<TMessage> Messages
-        {
-            get { return _messages; }
-        }
+        public IEnumerable<TMessage> Messages { get; }
     }
 
 #if !ERRH_INTERNAL

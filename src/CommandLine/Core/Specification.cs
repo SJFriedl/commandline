@@ -24,90 +24,45 @@ namespace CommandLine.Core
 
     abstract class Specification
     {
-        private readonly SpecificationType tag;
-        private readonly bool required;
-        private readonly bool hidden;
-        private readonly Maybe<int> min;
-        private readonly Maybe<int> max;
-        private readonly Maybe<object> defaultValue;
-        private readonly string helpText;
-        private readonly string metaValue;
-        private readonly IEnumerable<string> enumValues;
-        /// This information is denormalized to decouple Specification from PropertyInfo.
-        private readonly Type conversionType;
-        private readonly TargetType targetType;
-
         protected Specification(SpecificationType tag, bool required, Maybe<int> min, Maybe<int> max,
             Maybe<object> defaultValue, string helpText, string metaValue, IEnumerable<string> enumValues,
             Type conversionType, TargetType targetType, bool hidden = false)
         {
-            this.tag = tag;
-            this.required = required;
-            this.min = min;
-            this.max = max;
-            this.defaultValue = defaultValue;
-            this.conversionType = conversionType;
-            this.targetType = targetType;
-            this.helpText = helpText;
-            this.metaValue = metaValue;
-            this.enumValues = enumValues;
-            this.hidden = hidden;
+            this.Tag = tag;
+            this.Required = required;
+            this.Min = min;
+            this.Max = max;
+            this.DefaultValue = defaultValue;
+            this.ConversionType = conversionType;
+            this.TargetType = targetType;
+            this.HelpText = helpText;
+            this.MetaValue = metaValue;
+            this.EnumValues = enumValues;
+            this.Hidden = hidden;
         }
 
-        public SpecificationType Tag 
-        {
-            get { return tag; }
-        }
+        public SpecificationType Tag { get; }
 
-        public bool Required
-        {
-            get { return required; }
-        }
+        public bool Required { get; }
 
-        public Maybe<int> Min
-        {
-            get { return min; }
-        }
+        public Maybe<int> Min { get; }
 
-        public Maybe<int> Max
-        {
-            get { return max; }
-        }
+        public Maybe<int> Max { get; }
 
-        public Maybe<object> DefaultValue
-        {
-            get { return defaultValue; }
-        }
+        public Maybe<object> DefaultValue { get; }
 
-        public string HelpText
-        {
-            get { return helpText; }
-        }
+        public string HelpText { get; }
 
-        public string MetaValue
-        {
-            get { return metaValue; }
-        }
+        public string MetaValue { get; }
 
-        public IEnumerable<string> EnumValues
-        {
-            get { return enumValues; }
-        }
+        public IEnumerable<string> EnumValues { get; }
 
-        public Type ConversionType
-        {
-            get { return conversionType; }
-        }
+        /// This information is denormalized to decouple Specification from PropertyInfo.
+        public Type ConversionType { get; }
 
-        public TargetType TargetType
-        {
-            get { return targetType; }
-        }
+        public TargetType TargetType { get; }
 
-        public bool Hidden
-        {
-            get { return hidden; }
-        }
+        public bool Hidden { get; }
 
         public static Specification FromProperty(PropertyInfo property)
         {       

@@ -15,48 +15,35 @@ namespace CommandLine
         /// rather than options.
         /// </summary>
         public static readonly NameInfo EmptyName = new NameInfo(string.Empty, string.Empty);
-        private readonly string longName;
-        private readonly string shortName;
 
         internal NameInfo(string shortName, string longName)
         {
             if (shortName == null) throw new ArgumentNullException(nameof(shortName));
             if (longName == null) throw new ArgumentNullException(nameof(longName));
 
-            this.longName = longName;
-            this.shortName = shortName;
+            this.LongName = longName;
+            this.ShortName = shortName;
         }
 
         /// <summary>
         /// Gets the short name of the name information.
         /// </summary>
-        public string ShortName
-        {
-            get { return shortName; }
-        }
+        public string ShortName { get; }
 
         /// <summary>
         /// Gets the long name of the name information.
         /// </summary>
-        public string LongName
-        {
-            get { return longName; }
-        }
+        public string LongName { get; }
 
         /// <summary>
         /// Gets a formatted text with unified name information.
         /// </summary>
-        public string NameText
-        {
-            get
-            {
-                return ShortName.Length > 0 && LongName.Length > 0
-                           ? ShortName + ", " + LongName
-                           : ShortName.Length > 0
-                                ? ShortName
-                                : LongName;
-            }
-        }
+        public string NameText =>
+            ShortName.Length > 0 && LongName.Length > 0
+                ? ShortName + ", " + LongName
+                : ShortName.Length > 0
+                    ? ShortName
+                    : LongName;
 
         /// <summary>
         /// Determines whether the specified <see cref="System.Object"/> is equal to the current <see cref="System.Object"/>.
