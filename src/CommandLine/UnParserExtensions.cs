@@ -126,7 +126,7 @@ namespace CommandLine
         /// <returns>A string with command line arguments.</returns>
         public static string FormatCommandLine<T>(this Parser parser, T options, Action<UnParserSettings> configuration)
         {
-            if (options == null) throw new ArgumentNullException("options");
+            if (options == null) throw new ArgumentNullException(nameof(options));
 
             var settings = new UnParserSettings();
             configuration(settings);

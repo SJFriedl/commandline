@@ -20,8 +20,8 @@ namespace CommandLine
 
         internal NameInfo(string shortName, string longName)
         {
-            if (shortName == null) throw new ArgumentNullException("shortName");
-            if (longName == null) throw new ArgumentNullException("longName");
+            if (shortName == null) throw new ArgumentNullException(nameof(shortName));
+            if (longName == null) throw new ArgumentNullException(nameof(longName));
 
             this.longName = longName;
             this.shortName = shortName;

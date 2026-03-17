@@ -189,7 +189,7 @@ namespace CommandLine
         protected internal TokenError(ErrorType tag, string token)
             : base(tag)
         {
-            if (token == null) throw new ArgumentNullException("token");
+            if (token == null) throw new ArgumentNullException(nameof(token));
 
             this.token = token;
         }

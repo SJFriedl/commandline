@@ -78,7 +78,7 @@ namespace CommandLine
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether perform case sensitive comparisons.
+        /// Gets or sets a value indicating whether perform case-sensitive comparisons.
         /// Note that case insensitivity only applies to <i>parameters</i>, not the values
         /// assigned to them (for example, enum parsing).
         /// </summary>
@@ -89,7 +89,7 @@ namespace CommandLine
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether perform case sensitive comparisons of <i>values</i>.
+        /// Gets or sets a value indicating whether perform case-sensitive comparisons of <i>values</i>.
         /// Note that case insensitivity only applies to <i>values</i>, not the parameters.
         /// </summary>
         public bool CaseInsensitiveEnumValues
@@ -109,7 +109,7 @@ namespace CommandLine
             get { return parsingCulture; }
             set
             {
-                if (value == null) throw new ArgumentNullException("value");
+                if (value == null) throw new ArgumentNullException(nameof(value));
 
                 PopsicleSetter.Set(Consumed, ref parsingCulture, value); 
             }
@@ -130,7 +130,7 @@ namespace CommandLine
 
         /// <summary>
         /// Gets or sets a value indicating whether the parser shall move on to the next argument and ignore the given argument if it
-        /// encounter an unknown arguments
+        /// encounters an unknown arguments
         /// </summary>
         /// <value>
         /// <c>true</c> to allow parsing the arguments with different class options that do not have all the arguments.

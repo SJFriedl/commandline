@@ -49,7 +49,7 @@ namespace CommandLine
             {
                 if (value < 0)
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 }
 
                 min = value;
@@ -68,7 +68,7 @@ namespace CommandLine
             {
                 if (value < 0)
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 }
 
                 max = value;
@@ -93,7 +93,7 @@ namespace CommandLine
         public string HelpText
         {
             get => helpText.Value??string.Empty;
-            set => helpText.Value = value ?? throw new ArgumentNullException("value");
+            set => helpText.Value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace CommandLine
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 }
 
                 metaValue = value;

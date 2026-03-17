@@ -53,7 +53,7 @@ namespace CommandLine
         public string HelpText
         {
             get => helpText.Value ?? string.Empty;
-            set => helpText.Value = value ?? throw new ArgumentNullException("value");
+            set => helpText.Value = value ?? throw new ArgumentNullException(nameof(value));
         }
         /// <summary>
         /// Gets or sets the <see cref="System.Type"/> that contains the resources for <see cref="HelpText"/>.

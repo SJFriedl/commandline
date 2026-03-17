@@ -35,7 +35,7 @@ namespace CommandLine.Core
 
         public static TypeDescriptor Create(TargetType tag, Maybe<int> maximumItems, TypeDescriptor next = default(TypeDescriptor))
         {
-            if (maximumItems == null) throw new ArgumentNullException("maximumItems");
+            if (maximumItems == null) throw new ArgumentNullException(nameof(maximumItems));
 
             return new TypeDescriptor(tag, maximumItems, next.ToMaybe());
         }
