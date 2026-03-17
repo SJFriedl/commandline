@@ -19,8 +19,8 @@ namespace CommandLine.Tests.Unit
             var parser = Parser.Default;
             var parseResult = parser.ParseArguments<Options_HelpText_Ordering_Verb1, Options_HelpText_Ordering_Verb2>(
                     new[] {  "verb1", "--help" })
-                .WithNotParsed(errors => { ; })
-                .WithParsed(args => {; });
+                .WithNotParsed(errors => { })
+                .WithParsed(args => { });
 
             var message = HelpText.AutoBuild(parseResult,
                 error =>error,
@@ -48,8 +48,6 @@ namespace CommandLine.Tests.Unit
                 expect.Trim().Should().Be(helps[i].Trim());
                 i++;
             }
-
-            ;
         }
 
         [Fact]
@@ -61,8 +59,8 @@ namespace CommandLine.Tests.Unit
             var parser = Parser.Default;
             var parseResult = parser.ParseArguments<Options_HelpText_Ordering_Verb1, Options_HelpText_Ordering_Verb2>(
                     new[] { "verb1", "--help" })
-                .WithNotParsed(errors => { ; })
-                .WithParsed(args => {; });
+                .WithNotParsed(errors => { })
+                .WithParsed(args => { });
 
             Comparison<ComparableOption> comparison = HelpText.RequiredThenAlphaComparison;
 
@@ -96,8 +94,6 @@ namespace CommandLine.Tests.Unit
                 expect.Trim().Should().Be(helps[i].Trim());
                 i++;
             }
-
-            ;
         }
 
         [Fact]
@@ -109,8 +105,8 @@ namespace CommandLine.Tests.Unit
             var parser = Parser.Default;
             var parseResult = parser.ParseArguments<Options_HelpText_Ordering_Verb1, Options_HelpText_Ordering_Verb2>(
                     new[] {  "verb1", "--help" })
-                .WithNotParsed(errors => { ; })
-                .WithParsed(args => {; });
+                .WithNotParsed(errors => { })
+                .WithParsed(args => { });
 
             Comparison<ComparableOption> orderOnShortName = (ComparableOption attr1, ComparableOption attr2) =>
                    {
