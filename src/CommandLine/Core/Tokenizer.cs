@@ -155,7 +155,7 @@ namespace CommandLine.Core
             }
             if (value.Length > 1 && value[0] == '-' && value[1] != '-')
             {
-                var text = value.Substring(1);
+                var text = value[1..];
 
                 if (char.IsDigit(text[0]))
                 {
@@ -184,7 +184,7 @@ namespace CommandLine.Core
 
                 if (i < text.Length)
                 {
-                    yield return Token.Value(text.Substring(i));
+                    yield return Token.Value(text[i..]);
                 }
             }
         }
@@ -195,7 +195,7 @@ namespace CommandLine.Core
         {
             if (value.Length > 2 && value.StartsWith("--", StringComparison.Ordinal))
             {
-                var text = value.Substring(2);
+                var text = value[2..];
                 var equalIndex = text.IndexOf('=');
                 if (equalIndex <= 0)
                 {

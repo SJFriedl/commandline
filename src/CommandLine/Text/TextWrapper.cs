@@ -163,7 +163,7 @@ namespace CommandLine.Text
         {
             return (n >= str.Length || str.Length==0) 
                 ? string.Empty 
-                : str.Substring(n);
+                : str[n..];
         }
         /// <summary>
         /// Return the left part of a string in a way that compensates for Substring's deficiencies
@@ -173,7 +173,7 @@ namespace CommandLine.Text
             
             return  (n >= str.Length || str.Length==0)
                 ? str 
-                : str.Substring(0,n);
+                : str[..n];
         }
     }
 }

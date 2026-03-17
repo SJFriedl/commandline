@@ -145,7 +145,7 @@ namespace CommandLine.Core
 
             // First option char that requires a value means we swallow the rest of the string as the value
             // But if there is no rest of the string, then instead we swallow the next argument
-            string chars = arg.Substring(1);
+            string chars = arg[1..];
             int len = chars.Length;
             if (len > 0 && Char.IsDigit(chars[0]))
             {
@@ -164,7 +164,7 @@ namespace CommandLine.Core
                         if (i+1 < len)
                         {
                             // Rest of this is the value (e.g. "-sfoo" where "-s" is a string-consuming arg)
-                            yield return Token.Value(chars.Substring(i+1));
+                            yield return Token.Value(chars[(i+1)..]);
                             yield break;
                         }
                         else
@@ -192,7 +192,7 @@ namespace CommandLine.Core
             Action<string> onUnknownOption,
             Action<int> onConsumeNext)
         {
-            string[] parts = arg.Substring(2).Split(new char[] { '=' }, 2);
+            string[] parts = arg[2..].Split(new char[] { '=' }, 2);
             string name = parts[0];
             string value = (parts.Length > 1) ? parts[1] : null;
             // A parameter like "--stringvalue=" is acceptable, and makes stringvalue be the empty string
