@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 CommandLineParser project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.9.2-unixwiz]
+
+###
+- First Unixwiz private build
+- Ensured that OptionAttribute and ValueAttribute classes are not sealed.
+- Started mucking w/ the package version stuff
+
 ## [2.9.0-preview2] 
 
 ### Added
