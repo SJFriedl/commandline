@@ -20,12 +20,10 @@ namespace CommandLine.Text
         public Example(string helpText, IEnumerable<UnParserSettings> formatStyles, object sample)
         {
             if (string.IsNullOrEmpty(helpText)) throw new ArgumentException("helpText can't be null or empty", nameof(helpText));
-            if (formatStyles == null) throw new ArgumentNullException(nameof(formatStyles));
-            if (sample == null) throw new ArgumentNullException(nameof(sample));
 
             this.HelpText = helpText;
-            this.FormatStyles = formatStyles;
-            this.Sample = sample;
+            this.FormatStyles = formatStyles ?? throw new ArgumentNullException(nameof(formatStyles));
+            this.Sample = sample ?? throw new ArgumentNullException(nameof(sample));
         }
 
         /// <summary>

@@ -178,9 +178,7 @@ namespace CommandLine
         protected internal TokenError(ErrorType tag, string token)
             : base(tag)
         {
-            if (token == null) throw new ArgumentNullException(nameof(token));
-
-            this.Token = token;
+            this.Token = token ?? throw new ArgumentNullException(nameof(token));
         }
 
         /// <summary>

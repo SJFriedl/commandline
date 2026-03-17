@@ -94,15 +94,7 @@ namespace CommandLine
         public string MetaValue
         {
             get => metaValue;
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException(nameof(value));
-                }
-
-                metaValue = value;
-            }
+            set => metaValue = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>

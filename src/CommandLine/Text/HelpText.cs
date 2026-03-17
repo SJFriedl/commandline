@@ -199,12 +199,7 @@ namespace CommandLine.Text
         public string Heading
         {
             get => heading;
-            set
-            {
-                if (value == null) throw new ArgumentNullException(nameof(value));
-
-                heading = value;
-            }
+            set => heading = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
@@ -214,12 +209,7 @@ namespace CommandLine.Text
         public string Copyright
         {
             get => copyright;
-            set
-            {
-                if (value == null) throw new ArgumentNullException(nameof(value));
-
-                copyright = value;
-            }
+            set => copyright = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>

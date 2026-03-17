@@ -100,9 +100,7 @@ namespace RailwaySharp.ErrorHandling
         public Bad(IEnumerable<TMessage> messages)
             : base(ResultType.Bad)
         {
-            if (messages == null) throw new ArgumentException(nameof(messages));
-
-            Messages = messages;
+            Messages = messages ?? throw new ArgumentException(nameof(messages));
         }
 
         public IEnumerable<TMessage> Messages { get; }

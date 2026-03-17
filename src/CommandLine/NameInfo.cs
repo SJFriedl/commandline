@@ -18,11 +18,8 @@ namespace CommandLine
 
         internal NameInfo(string shortName, string longName)
         {
-            if (shortName == null) throw new ArgumentNullException(nameof(shortName));
-            if (longName == null) throw new ArgumentNullException(nameof(longName));
-
-            this.LongName = longName;
-            this.ShortName = shortName;
+            this.LongName = longName ?? throw new ArgumentNullException(nameof(longName));
+            this.ShortName = shortName ?? throw new ArgumentNullException(nameof(shortName));
         }
 
         /// <summary>

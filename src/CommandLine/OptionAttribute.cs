@@ -16,11 +16,8 @@ namespace CommandLine
 
         private OptionAttribute(string shortName, string longName) : base()
         {
-            if (shortName == null) throw new ArgumentNullException(nameof(shortName));
-            if (longName == null) throw new ArgumentNullException(nameof(longName));
-
-            this.ShortName = shortName;
-            this.LongName = longName;
+            this.ShortName = shortName ?? throw new ArgumentNullException(nameof(shortName));
+            this.LongName = longName ?? throw new ArgumentNullException(nameof(longName));
             setName = string.Empty;
             Separator = '\0';
         }
@@ -78,12 +75,7 @@ namespace CommandLine
         public string SetName
         {
             get => setName;
-            set
-            {
-                if (value == null) throw new ArgumentNullException(nameof(value));
-
-                setName = value;
-            }
+            set => setName = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>

@@ -74,17 +74,11 @@ namespace CommandLine.Text
         /// <param name="line5">The fifth line of text.</param>
         protected MultilineTextAttribute(string line1, string line2, string line3, string line4, string line5)
         {
-            if (line1 == null) throw new ArgumentException(nameof(line1));
-            if (line2 == null) throw new ArgumentException(nameof(line2));
-            if (line3 == null) throw new ArgumentException(nameof(line3));
-            if (line4 == null) throw new ArgumentException(nameof(line4));
-            if (line5 == null) throw new ArgumentException(nameof(line5));
-            
-            this.line1 = line1;
-            this.line2 = line2;
-            this.line3 = line3;
-            this.line4 = line4;
-            this.line5 = line5;
+            this.line1 = line1 ?? throw new ArgumentException(nameof(line1));
+            this.line2 = line2 ?? throw new ArgumentException(nameof(line2));
+            this.line3 = line3 ?? throw new ArgumentException(nameof(line3));
+            this.line4 = line4 ?? throw new ArgumentException(nameof(line4));
+            this.line5 = line5 ?? throw new ArgumentException(nameof(line5));
         }
 
         /// <summary>
