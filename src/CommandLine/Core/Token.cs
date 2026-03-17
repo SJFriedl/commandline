@@ -53,8 +53,7 @@ namespace CommandLine.Core
 
         public override bool Equals(object obj)
         {
-            var other = obj as Name;
-            if (other != null)
+            if (obj is Name other)
             {
                 return Equals(other);
             }
@@ -115,8 +114,7 @@ namespace CommandLine.Core
 
         public override bool Equals(object obj)
         {
-            var other = obj as Value;
-            if (other != null)
+            if (obj is Value other)
             {
                 return Equals(other);
             }

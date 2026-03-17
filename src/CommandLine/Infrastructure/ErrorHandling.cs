@@ -255,8 +255,7 @@ namespace RailwaySharp.ErrorHandling
             if (successFunc == null) throw new ArgumentException(nameof(successFunc));
             if (failureFunc == null) throw new ArgumentException(nameof(failureFunc));
 
-            var ok = trialResult as Ok<TSuccess, TMessage>;
-            if (ok != null) {
+            if (trialResult is Ok<TSuccess, TMessage> ok) {
                 return successFunc(ok.Success, ok.Messages);
             }
             var bad = (Bad<TSuccess, TMessage>)trialResult;
@@ -460,8 +459,7 @@ namespace RailwaySharp.ErrorHandling
             if (ifSuccess == null) throw new ArgumentException(nameof(ifSuccess));
             if (ifFailure == null) throw new ArgumentException(nameof(ifFailure));
 
-            var ok = result as Ok<TSuccess, TMessage>;
-            if (ok != null) {
+            if (result is Ok<TSuccess, TMessage> ok) {
                 ifSuccess(ok.Success, ok.Messages);
                 return;
             }

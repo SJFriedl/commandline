@@ -131,8 +131,7 @@ namespace CommandLine
         /// <returns><value>true</value> if the specified <see cref="System.Object"/> is equal to the current <see cref="System.Object"/>; otherwise, <value>false</value>.</returns>
         public override bool Equals(object obj)
         {
-            var other = obj as Error;
-            if (other != null)
+            if (obj is Error other)
             {
                 return Equals(other);
             }
@@ -193,8 +192,7 @@ namespace CommandLine
         /// <returns><value>true</value> if the specified <see cref="System.Object"/> is equal to the current <see cref="System.Object"/>; otherwise, <value>false</value>.</returns>
         public override bool Equals(object obj)
         {
-            var other = obj as TokenError;
-            if (other != null)
+            if (obj is TokenError other)
             {
                 return Equals(other);
             }
@@ -267,8 +265,7 @@ namespace CommandLine
         /// <returns><value>true</value> if the specified <see cref="System.Object"/> is equal to the current <see cref="System.Object"/>; otherwise, <value>false</value>.</returns>
         public override bool Equals(object obj)
         {
-            var other = obj as NamedError;
-            if (other != null)
+            if (obj is NamedError other)
             {
                 return Equals(other);
             }
@@ -510,8 +507,7 @@ namespace CommandLine
 
         public new bool Equals(Error obj)
         {
-            var other = obj as MissingGroupOptionError;
-            if (other != null)
+            if (obj is MissingGroupOptionError other)
             {
                 return Equals(other);
             }

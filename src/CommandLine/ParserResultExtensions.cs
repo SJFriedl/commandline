@@ -20,8 +20,7 @@ namespace CommandLine
         /// <returns>The same <paramref name="result"/> instance.</returns>
         public static ParserResult<T> WithParsed<T>(this ParserResult<T> result, Action<T> action)
         {
-            var parsed = result as Parsed<T>;
-            if (parsed != null)
+            if (result is Parsed<T> parsed)
             {
                 action(parsed.Value);
             }
@@ -37,8 +36,7 @@ namespace CommandLine
         /// <returns>The same <paramref name="result"/> instance.</returns>
         public static ParserResult<object> WithParsed<T>(this ParserResult<object> result, Action<T> action)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T)
                 {
@@ -58,8 +56,7 @@ namespace CommandLine
         /// <returns>The same <paramref name="result"/> instance.</returns>
         public static ParserResult<T> WithNotParsed<T>(this ParserResult<T> result, Action<IEnumerable<Error>> action)
         {
-            var notParsed = result as NotParsed<T>;
-            if (notParsed != null)
+            if (result is NotParsed<T> notParsed)
             {
                 action(notParsed.Errors);
             }
@@ -79,8 +76,7 @@ namespace CommandLine
             Func<TSource, TResult> parsedFunc,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<TSource>;
-            if (parsed != null)
+            if (result is Parsed<TSource> parsed)
             {
                 return parsedFunc(parsed.Value);
             }
@@ -100,8 +96,7 @@ namespace CommandLine
             Func<T1, TResult> parsedFunc1,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -128,8 +123,7 @@ namespace CommandLine
             Func<T2, TResult> parsedFunc2,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -163,8 +157,7 @@ namespace CommandLine
             Func<T3, TResult> parsedFunc3,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -205,8 +198,7 @@ namespace CommandLine
             Func<T4, TResult> parsedFunc4,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -254,8 +246,7 @@ namespace CommandLine
             Func<T5, TResult> parsedFunc5,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -310,8 +301,7 @@ namespace CommandLine
             Func<T6, TResult> parsedFunc6,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -373,8 +363,7 @@ namespace CommandLine
             Func<T7, TResult> parsedFunc7,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -443,8 +432,7 @@ namespace CommandLine
             Func<T8, TResult> parsedFunc8,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -520,8 +508,7 @@ namespace CommandLine
             Func<T9, TResult> parsedFunc9,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -604,8 +591,7 @@ namespace CommandLine
             Func<T10, TResult> parsedFunc10,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -695,8 +681,7 @@ namespace CommandLine
             Func<T11, TResult> parsedFunc11,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -793,8 +778,7 @@ namespace CommandLine
             Func<T12, TResult> parsedFunc12,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -898,8 +882,7 @@ namespace CommandLine
             Func<T13, TResult> parsedFunc13,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -1010,8 +993,7 @@ namespace CommandLine
             Func<T14, TResult> parsedFunc14,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -1129,8 +1111,7 @@ namespace CommandLine
             Func<T15, TResult> parsedFunc15,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {
@@ -1255,8 +1236,7 @@ namespace CommandLine
             Func<T16, TResult> parsedFunc16,
             Func<IEnumerable<Error>, TResult> notParsedFunc)
         {
-            var parsed = result as Parsed<object>;
-            if (parsed != null)
+            if (result is Parsed<object> parsed)
             {
                 if (parsed.Value is T1)
                 {

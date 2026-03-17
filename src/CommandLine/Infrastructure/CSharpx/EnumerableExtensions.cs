@@ -47,8 +47,7 @@ namespace CSharpx
         private static IEnumerable<TSource> AssertCountImpl<TSource>(IEnumerable<TSource> source,
             int count, Func<int, int, Exception> errorSelector)
         {
-            var collection = source as ICollection<TSource>; // Optimization for collections
-            if (collection != null)
+            if (source is ICollection<TSource> collection) // Optimization for collections
             {
                 if (collection.Count != count) {
                     throw errorSelector(collection.Count.CompareTo(count), count);
