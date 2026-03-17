@@ -8,11 +8,14 @@
 
 This is a private, independently-maintained fork of the excellent CommandLineParser package
 for modern .NET applications, and has dropped support for anything but recent .NET versions.
-We have an application that required a change - un-sealing the "OptionAttribute" class - and
-needed to share this with a small circle of customers.
+We have an application that required a change - un-sealing the "OptionValue" and "ValueAttribute"
+classes - and needed to share this with a small circle of customers.
 
 Sorry, FSharp and .netstandard support has been removed. The docs below will be edited at some
 point to ensure that this README.md is not lying.
+
+Do not enable `GeneratePackageOnBuild` - it interferes with expected behavior of `dotnet pack -c Release`
+after a clean build and caused missing-output packaging failures.
 
 # Command Line Parser Library for CLR and NetStandard
 

@@ -5,10 +5,10 @@ using System;
 namespace CommandLine
 {
     /// <summary>
-    /// Models an value specification, or better how to handle values not bound to options.
+    /// Models a value specification, or better how to handle values not bound to options.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
-    public sealed class ValueAttribute : BaseAttribute
+    public /*sealed*/ class ValueAttribute : BaseAttribute
     {
         private readonly int index;
         private string metaName; 
