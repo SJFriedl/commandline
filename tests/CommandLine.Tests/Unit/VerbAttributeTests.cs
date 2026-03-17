@@ -1,6 +1,7 @@
 ﻿using System;
 using Xunit;
 
+// ReSharper disable once CheckNamespace
 namespace CommandLine.Tests
 {
 	//Test localization of VerbAttribute

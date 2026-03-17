@@ -5,6 +5,7 @@ using FluentAssertions;
 using CommandLine.Core;
 using CommandLine.Tests.Fakes;
 
+// ReSharper disable once CheckNamespace
 namespace CommandLine.Tests.Unit.Infrastructure
 {
     public class ReflectionHelperTests
