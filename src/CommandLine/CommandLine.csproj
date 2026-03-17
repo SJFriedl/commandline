@@ -9,10 +9,10 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<AssemblyOriginatorKeyFile>..\..\CommandLine.snk</AssemblyOriginatorKeyFile>
 		<SignAssembly>true</SignAssembly>
-		<PackageId Condition="'$(BuildTarget)' != 'fsharp'">CommandLineParser</PackageId>
-		<PackageId Condition="'$(BuildTarget)' == 'fsharp'">CommandLineParser.FSharp</PackageId>
+		<PackageId Condition="'$(BuildTarget)' != 'fsharp'">Unixwiz.CommandLineParser</PackageId>
+		<PackageId Condition="'$(BuildTarget)' == 'fsharp'">Unixwiz.CommandLineParser.FSharp</PackageId>
 		<Authors>gsscoder;nemec;ericnewton76;moh-hassan</Authors>
-		<Title>Command Line Parser Library</Title>
+		<Title>Command Line Parser Library - Unixwiz.net fork</Title>
 		<Version Condition="'$(VersionSuffix)' != ''">$(VersionSuffix)</Version>
 		<Version Condition="'$(VersionSuffix)' == ''">0.0.0</Version>
 		<Description Condition="'$(BuildTarget)' != 'fsharp'">Terse syntax C# command line parser for .NET.  For FSharp support see CommandLineParser.FSharp.  The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks.</Description>
@@ -27,6 +27,7 @@
 		<LangVersion>8.0</LangVersion>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageId>Unixwiz.CommandLineParser</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(BuildTarget)' != 'fsharp'">

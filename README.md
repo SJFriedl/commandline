@@ -4,6 +4,16 @@
 [![NuGet](https://img.shields.io/nuget/vpre/commandlineparser.svg)](https://www.nuget.org/packages/CommandLineParser/)
 [![Join the Gitter chat!](https://badges.gitter.im/gsscoder/commandline.svg)](https://gitter.im/gsscoder/commandline?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+# Unixwiz.net update
+
+This is a private, independently-maintained fork of the excellent CommandLineParser package
+for modern .NET applications, and has dropped support for anything but recent .NET versions.
+We have an application that required a change - un-sealing the "OptionAttribute" class - and
+needed to share this with a small circle of customers.
+
+Sorry, FSharp and .netstandard support has been removed. The docs below will be edited at some
+point to ensure that this README.md is not lying.
+
 # Command Line Parser Library for CLR and NetStandard
 
 **Note:** the API surface has changed since v1.9.x and earlier. If you are looking for documentation on v1.9.x, please see [stable-1.9.71.2](https://github.com/gsscoder/commandline/tree/stable-1.9.71.2)
