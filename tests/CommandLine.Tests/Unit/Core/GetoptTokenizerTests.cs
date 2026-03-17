@@ -22,7 +22,7 @@ namespace CommandLine.Tests.Unit.Core
             var specs = new[] { new OptionSpecification(string.Empty, "string-seq",
                 false, string.Empty, Maybe.Nothing<int>(), Maybe.Nothing<int>(), ',', null, string.Empty, string.Empty, new List<string>(), typeof(IEnumerable<string>), TargetType.Sequence, string.Empty)};
 
-            // Exercize system
+            // Exercise system
             var result =
                 GetoptTokenizer.ExplodeOptionList(
                     Result.Succeed(
@@ -45,7 +45,7 @@ namespace CommandLine.Tests.Unit.Core
             var specs = new[] { new OptionSpecification(string.Empty, "string-seq",
                 false, string.Empty, Maybe.Nothing<int>(), Maybe.Nothing<int>(), ',', null, string.Empty, string.Empty, new List<string>(), typeof(IEnumerable<string>), TargetType.Sequence, string.Empty)};
 
-            // Exercize system
+            // Exercise system
             var result =
                 GetoptTokenizer.ExplodeOptionList(
                     Result.Succeed(
@@ -63,7 +63,7 @@ namespace CommandLine.Tests.Unit.Core
         [Fact]
         public void Should_properly_parse_option_with_equals_in_value()
         {
-            /**
+            /*
              * This is how the arg. would look in `static void Main(string[] args)`
              * if passed from the command-line and the option-value wrapped in quotes.
              * Ex.) ./app --connectionString="Server=localhost;Data Source..."
@@ -90,7 +90,7 @@ namespace CommandLine.Tests.Unit.Core
             var errors = result.SuccessMessages();
 
             Assert.NotNull(errors);
-            Assert.Equal(1, errors.Count());
+            Assert.Single(errors);
             Assert.Equal(ErrorType.BadFormatTokenError, errors.First().Tag);
 
             var tokens = result.SucceededWith();

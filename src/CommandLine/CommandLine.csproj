@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<AssemblyName>CommandLine</AssemblyName>
 		<OutputType>Library</OutputType>
-		<TargetFrameworks>netstandard2.0;net40;net45;net461</TargetFrameworks>
+		<TargetFrameworks>net8.0</TargetFrameworks>
 		<DefineConstants>$(DefineConstants);CSX_EITHER_INTERNAL;CSX_REM_EITHER_BEYOND_2;CSX_ENUM_INTERNAL;ERRH_INTERNAL;CSX_MAYBE_INTERNAL;CSX_REM_EITHER_FUNC;CSX_REM_CRYPTORAND;ERRH_ADD_MAYBE_METHODS</DefineConstants>
 		<DefineConstants Condition="'$(BuildTarget)' != 'fsharp'">$(DefineConstants);SKIP_FSHARP</DefineConstants>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -14,17 +14,16 @@
 		<Authors>gsscoder;nemec;ericnewton76;moh-hassan;SJFriedl</Authors>
 		<Title>Command Line Parser Library - Unixwiz.net fork</Title>
 		<Version Condition="'$(VersionSuffix)' != ''">$(VersionSuffix)</Version>
-		<Version Condition="'$(VersionSuffix)' == ''">2.9.2-unixwiz</Version>
+		<Version Condition="'$(VersionSuffix)' == ''">2.9.3-unixwiz</Version>
 		<Description Condition="'$(BuildTarget)' != 'fsharp'">Terse syntax C# command line parser for .NET.  For FSharp support see CommandLineParser.FSharp.  The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks.</Description>
 		<Description Condition="'$(BuildTarget)' == 'fsharp'">Terse syntax C# command line parser for .NET with F# support. The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks.</Description>
 		<Copyright>Copyright (c) 2005 - 2020 Giacomo Stelluti Scala &amp; Contributors</Copyright>
 		<PackageLicenseFile>License.md</PackageLicenseFile>
 		<PackageIcon>CommandLine20.png</PackageIcon>
-		<PackageProjectUrl>https://github.com/commandlineparser/commandline</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/SJFriedl/commandline</PackageProjectUrl>
 		<PackageTags>command line;commandline;argument;option;parser;parsing;library;syntax;shell</PackageTags>
-		<PackageReleaseNotes>https://github.com/commandlineparser/commandline/blob/master/CHANGELOG.md</PackageReleaseNotes>
+		<PackageReleaseNotes>https://github.com/SJFriedl/commandline/blob/master/CHANGELOG.md</PackageReleaseNotes>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-		<LangVersion>8.0</LangVersion>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PackageId>Unixwiz.CommandLineParser</PackageId>

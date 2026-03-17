@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 CommandLineParser project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.9.3-unixwiz]
+
+###
+- Updated frameworks, went from "netstandard2.0;net40;net45;net461" to "net8.0".
+- Deleted LangVersion = 8.0 (way too old)
+
 ## [2.9.2-unixwiz]
 
 ###
