@@ -30,14 +30,9 @@ namespace RailwaySharp.ErrorHandling
 #if !ERRH_INTERNAL
     public
 #endif 
-    abstract class Result<TSuccess, TMessage>
+    abstract class Result<TSuccess, TMessage>(ResultType tag)
     {
-        protected Result(ResultType tag)
-        {
-            Tag = tag;
-        }
-
-        public ResultType Tag { get; }
+        public ResultType Tag { get; } = tag;
 
         public override string ToString()
         {
@@ -90,15 +85,9 @@ namespace RailwaySharp.ErrorHandling
 #if !ERRH_INTERNAL
     public
 #endif
-    sealed class Bad<TSuccess, TMessage> : Result<TSuccess, TMessage>
+    sealed class Bad<TSuccess, TMessage>(IEnumerable<TMessage> messages) : Result<TSuccess, TMessage>(ResultType.Bad)
     {
-        public Bad(IEnumerable<TMessage> messages)
-            : base(ResultType.Bad)
-        {
-            Messages = messages ?? throw new ArgumentException(nameof(messages));
-        }
-
-        public IEnumerable<TMessage> Messages { get; }
+        public IEnumerable<TMessage> Messages { get; } = messages ?? throw new ArgumentException(nameof(messages));
     }
 
 #if !ERRH_INTERNAL

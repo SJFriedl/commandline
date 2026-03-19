@@ -6,14 +6,8 @@ namespace CommandLine.Core
 {
     enum TokenType { Name, Value }
 
-    abstract class Token
+    abstract class Token(TokenType tag, string text)
     {
-        protected Token(TokenType tag, string text)
-        {
-            this.Tag = tag;
-            this.Text = text;
-        }
-
         public static Token Name(string text)
         {
             return new Name(text);
@@ -39,18 +33,13 @@ namespace CommandLine.Core
             return new Value(text, false, false, true);
         }
 
-        public TokenType Tag { get; }
+        public TokenType Tag { get; } = tag;
 
-        public string Text { get; }
+        public string Text { get; } = text;
     }
 
-    class Name : Token, IEquatable<Name>
+    class Name(string text) : Token(TokenType.Name, text), IEquatable<Name>
     {
-        public Name(string text)
-            : base(TokenType.Name, text)
-        {
-        }
-
         public override bool Equals(object obj)
         {
             if (obj is Name other)

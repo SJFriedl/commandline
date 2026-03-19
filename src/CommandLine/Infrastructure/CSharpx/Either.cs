@@ -25,14 +25,9 @@ namespace CSharpx
 #if !CSX_EITHER_INTERNAL
     public
 #endif
-    abstract class Either<TLeft, TRight>
+    abstract class Either<TLeft, TRight>(EitherType tag)
     {
-        protected Either(EitherType tag)
-        {
-            this.Tag = tag;
-        }
-
-        public EitherType Tag { get; }
+        public EitherType Tag { get; } = tag;
 
         #region Basic Match Methods
         public bool MatchLeft(out TLeft value)

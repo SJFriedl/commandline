@@ -384,14 +384,9 @@ namespace CSharpx
             return new MaterializedEnumerable<T>(source);
         }
 
-        private class MaterializedEnumerable<T> : IEnumerable<T>
+        private class MaterializedEnumerable<T>(IEnumerable<T> enumerable) : IEnumerable<T>
         {
-            private readonly ICollection<T> inner;
-
-            public MaterializedEnumerable(IEnumerable<T> enumerable)
-            {
-                inner = enumerable as ICollection<T> ?? enumerable.ToArray();
-            }
+            private readonly ICollection<T> inner = enumerable as ICollection<T> ?? enumerable.ToArray();
 
             public IEnumerator<T> GetEnumerator()
             {

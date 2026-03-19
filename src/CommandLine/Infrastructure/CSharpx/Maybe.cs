@@ -28,17 +28,12 @@ namespace CSharpx
 #if !CSX_MAYBE_INTERNAL
     public
 #endif
-    abstract class Maybe<T>
+    abstract class Maybe<T>(MaybeType tag)
     {
-        protected Maybe(MaybeType tag)
-        {
-            this.Tag = tag;
-        }
-
         /// <summary>
         /// Type discriminator.
         /// </summary>
-        public MaybeType Tag { get; }
+        public MaybeType Tag { get; } = tag;
 
         #region Basic Match Methods
         /// <summary>

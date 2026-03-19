@@ -9,19 +9,18 @@ namespace CommandLine.Text
     /// <summary>
     /// A utility class to word-wrap and indent blocks of text
     /// </summary>
-    public class TextWrapper
+    public class TextWrapper(string input)
     {
-        private string[] lines;
-        public TextWrapper(string input)
-        {
-            //start by splitting at newlines and then reinserting the newline as a separate word
-            //Note that on the input side, we can't assume the line-break style at run time so we have to
-            //be able to handle both.  We can't use Environment.NewLine because that changes at
-            //_runtime_ and may not match the line-break style that was compiled in
-            lines = input
-                .Replace("\r","")
-                .Split(new[] {'\n'}, StringSplitOptions.None);
-        }
+        private static readonly char[] delims = ['\n'];
+
+        private string[] lines = input
+            .Replace("\r","")
+            .Split(delims, StringSplitOptions.None);
+
+        //start by splitting at newlines and then reinserting the newline as a separate word
+        //Note that on the input side, we can't assume the line-break style at run time so we have to
+        //be able to handle both.  We can't use Environment.NewLine because that changes at
+        //_runtime_ and may not match the line-break style that was compiled in
 
         /// <summary>
         /// Splits a string into a words and performs wrapping while also preserving line-breaks and sub-indentation
@@ -69,7 +68,7 @@ namespace CommandLine.Text
         public string ToText()
         {
             //return the whole thing as a single string
-            return string.Join(Environment.NewLine,lines);
+            return string.Join(Environment.NewLine, lines);
         }
 
         /// <summary>
@@ -90,7 +89,6 @@ namespace CommandLine.Text
                 .Indent(indentLevel)
                 .ToText();
         }
-
 
         private string [] WordWrapLine(string line,int columnWidth)
         {
@@ -155,7 +153,6 @@ namespace CommandLine.Text
             return lines;
         }
 
-       
         /// <summary>
         /// Return the right part of a string in a way that compensates for Substring's deficiencies
         /// </summary>
@@ -165,12 +162,12 @@ namespace CommandLine.Text
                 ? string.Empty 
                 : str[n..];
         }
+
         /// <summary>
         /// Return the left part of a string in a way that compensates for Substring's deficiencies
         /// </summary>
         private static string LeftString(string str,int n)
         {
-            
             return  (n >= str.Length || str.Length==0)
                 ? str 
                 : str[..n];
