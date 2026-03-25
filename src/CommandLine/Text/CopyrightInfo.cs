@@ -115,7 +115,7 @@ namespace CommandLine.Text
                             ? Empty
                             // if no copyright attribute exist but a company attribute does, use it as copyright holder
                             : new CopyrightInfo(companyAttr.FromJust().Company, DateTime.Now.Year);
-                        
+
                 }
             }
         }

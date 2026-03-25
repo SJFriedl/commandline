@@ -91,7 +91,7 @@ namespace CommandLine
     public static class UnParserExtensions
     {
         /// <summary>
-        /// Format a command line argument string from a parsed instance. 
+        /// Format a command line argument string from a parsed instance.
         /// </summary>
         /// <typeparam name="T">Type of <paramref name="options"/>.</typeparam>
         /// <param name="parser">Parser instance.</param>
@@ -103,7 +103,7 @@ namespace CommandLine
         }
 
         /// <summary>
-        /// Format a command line argument string from a parsed instance in the form of string[]. 
+        /// Format a command line argument string from a parsed instance in the form of string[].
         /// </summary>
         /// <typeparam name="T">Type of <paramref name="options"/>.</typeparam>
         /// <param name="parser">Parser instance.</param>
@@ -115,7 +115,7 @@ namespace CommandLine
         }
 
         /// <summary>
-        /// Format a command line argument string from a parsed instance. 
+        /// Format a command line argument string from a parsed instance.
         /// </summary>
         /// <typeparam name="T">Type of <paramref name="options"/>.</typeparam>
         /// <param name="parser">Parser instance.</param>
@@ -200,7 +200,7 @@ namespace CommandLine
                 .ToString().TrimEnd(' ');
         }
         /// <summary>
-        /// Format a command line argument string[] from a parsed instance. 
+        /// Format a command line argument string[] from a parsed instance.
         /// </summary>
         /// <typeparam name="T">Type of <paramref name="options"/>.</typeparam>
         /// <param name="parser">Parser instance.</param>
@@ -263,7 +263,7 @@ namespace CommandLine
 
         private static string FormatName(this OptionSpecification optionSpec, object value, UnParserSettings settings)
         {
-            // Have a long name and short name not preferred? Go with long! 
+            // Have a long name and short name not preferred? Go with long!
             // No short name? Has to be long!
             var longName = (optionSpec.LongName.Length > 0 && !settings.PreferShortName)
                          || optionSpec.ShortName.Length == 0;

@@ -60,7 +60,7 @@ namespace CommandLine
                 {
                     width = DefaultMaximumLength;
                 }
-            }           
+            }
             catch (Exception e) when (e is IOException || e is PlatformNotSupportedException || e is ArgumentOutOfRangeException)
             {
                width = DefaultMaximumLength;
@@ -110,7 +110,7 @@ namespace CommandLine
             {
                 if (value == null) throw new ArgumentNullException(nameof(value));
 
-                PopsicleSetter.Set(Consumed, ref parsingCulture, value); 
+                PopsicleSetter.Set(Consumed, ref parsingCulture, value);
             }
         }
 

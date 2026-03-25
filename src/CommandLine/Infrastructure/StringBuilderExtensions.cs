@@ -116,7 +116,7 @@ namespace CommandLine.Infrastructure
 
         /// <summary>
         /// Indicates whether the string value of a <see cref="System.Text.StringBuilder"/>
-        /// starts with the input <see cref="System.String"/> parameter. Returns false if either 
+        /// starts with the input <see cref="System.String"/> parameter. Returns false if either
         /// the StringBuilder or input string is null or empty.
         /// </summary>
         /// <param name="builder">The <see cref="System.Text.StringBuilder"/> to test.</param>
@@ -133,7 +133,7 @@ namespace CommandLine.Infrastructure
 
         /// <summary>
         /// Indicates whether the string value of a <see cref="System.Text.StringBuilder"/>
-        /// ends with the input <see cref="System.String"/> parameter. Returns false if either 
+        /// ends with the input <see cref="System.String"/> parameter. Returns false if either
         /// the StringBuilder or input string is null or empty.
         /// </summary>
         /// <param name="builder">The <see cref="System.Text.StringBuilder"/> to test.</param>

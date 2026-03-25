@@ -52,7 +52,7 @@ namespace CSharpx
             {
                 if (collection.Count != count) {
                     throw errorSelector(collection.Count.CompareTo(count), count);
-                }   
+                }
                 return source;
             }
 
@@ -156,8 +156,8 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns a sequence of <see cref="KeyValuePair{TKey,TValue}"/> 
-        /// where the key is the zero-based index of the value in the source 
+        /// Returns a sequence of <see cref="KeyValuePair{TKey,TValue}"/>
+        /// where the key is the zero-based index of the value in the source
         /// sequence.
         /// </summary>
         public static IEnumerable<KeyValuePair<int, TSource>> Index<TSource>(this IEnumerable<TSource> source)
@@ -166,7 +166,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns a sequence of <see cref="KeyValuePair{TKey,TValue}"/> 
+        /// Returns a sequence of <see cref="KeyValuePair{TKey,TValue}"/>
         /// where the key is the index of the value in the source sequence.
         /// An additional parameter specifies the starting index.
         /// </summary>
@@ -176,7 +176,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns the result of applying a function to a sequence of 
+        /// Returns the result of applying a function to a sequence of
         /// 1 element.
         /// </summary>
         public static TResult Fold<T, TResult>(this IEnumerable<T> source, Func<T, TResult> folder)
@@ -185,7 +185,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns the result of applying a function to a sequence of 
+        /// Returns the result of applying a function to a sequence of
         /// 2 elements.
         /// </summary>
         public static TResult Fold<T, TResult>(this IEnumerable<T> source, Func<T, T, TResult> folder)
@@ -194,7 +194,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns the result of applying a function to a sequence of 
+        /// Returns the result of applying a function to a sequence of
         /// 3 elements.
         /// </summary>
         public static TResult Fold<T, TResult>(this IEnumerable<T> source, Func<T, T, T, TResult> folder)
@@ -203,7 +203,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns the result of applying a function to a sequence of 
+        /// Returns the result of applying a function to a sequence of
         /// 4 elements.
         /// </summary>
         public static TResult Fold<T, TResult>(this IEnumerable<T> source, Func<T, T, T, T, TResult> folder)
@@ -265,7 +265,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Returns a sequence resulting from applying a function to each 
+        /// Returns a sequence resulting from applying a function to each
         /// element in the source sequence and its /predecessor, except
         /// the first element which is /only returned as the
         /// predecessor of the second element.
@@ -297,7 +297,7 @@ namespace CSharpx
         }
 
         /// <summary>
-        /// Creates a delimited string from a sequence of values. The 
+        /// Creates a delimited string from a sequence of values. The
         /// delimiter used depends on the current culture of the executing thread.
         /// </summary>
         public static string ToDelimitedString<TSource>(this IEnumerable<TSource> source)

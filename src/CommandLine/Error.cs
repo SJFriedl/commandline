@@ -79,7 +79,7 @@ namespace CommandLine
         /// <summary>
         /// Value of <see cref="CommandLine.GroupOptionAmbiguityError"/> type.
         /// </summary>
-        GroupOptionAmbiguityError, 
+        GroupOptionAmbiguityError,
         /// <summary>
         /// Value of <see cref="CommandLine.MultipleDefaultVerbsError"/> type.
         /// </summary>

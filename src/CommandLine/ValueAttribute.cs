@@ -10,7 +10,7 @@ namespace CommandLine
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public /*sealed*/ class ValueAttribute : BaseAttribute
     {
-        private string metaName; 
+        private string metaName;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandLine.ValueAttribute"/> class.

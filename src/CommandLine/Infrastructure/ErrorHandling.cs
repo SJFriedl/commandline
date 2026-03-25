@@ -26,10 +26,10 @@ namespace RailwaySharp.ErrorHandling
     /// Represents the result of a computation.
     /// </summary>
     /// <typeparam name="TSuccess">Type that models the result of a successful computation.</typeparam>
-    /// <typeparam name="TMessage">Type that model a message related to a computation.</typeparam> 
+    /// <typeparam name="TMessage">Type that model a message related to a computation.</typeparam>
 #if !ERRH_INTERNAL
     public
-#endif 
+#endif
     abstract class Result<TSuccess, TMessage>(ResultType tag)
     {
         public ResultType Tag { get; } = tag;
@@ -56,10 +56,10 @@ namespace RailwaySharp.ErrorHandling
     /// Represents the result of a successful computation.
     /// </summary>
     /// <typeparam name="TSuccess">Type that models the result of a successful computation.</typeparam>
-    /// <typeparam name="TMessage">Type that model a message related to a computation.</typeparam> 
+    /// <typeparam name="TMessage">Type that model a message related to a computation.</typeparam>
 #if !ERRH_INTERNAL
     public
-#endif 
+#endif
     sealed class Ok<TSuccess, TMessage> : Result<TSuccess, TMessage>
     {
         private readonly Tuple<TSuccess, IEnumerable<TMessage>> _value;
@@ -81,7 +81,7 @@ namespace RailwaySharp.ErrorHandling
     /// Represents the result of a failed computation.
     /// </summary>
     /// <typeparam name="TSuccess">Type that models the result of a successful computation.</typeparam>
-    /// <typeparam name="TMessage">Type that model a message related to a computation.</typeparam> 
+    /// <typeparam name="TMessage">Type that model a message related to a computation.</typeparam>
 #if !ERRH_INTERNAL
     public
 #endif
@@ -247,7 +247,7 @@ namespace RailwaySharp.ErrorHandling
         }
 
         /// <summary>
-        /// If the given result is a Success the wrapped value will be returned. 
+        /// If the given result is a Success the wrapped value will be returned.
         /// Otherwise, the function throws an exception with Failure message of the result.
         /// </summary>
 #if ERRH_ENABLE_INLINE_METHODS
@@ -321,9 +321,9 @@ namespace RailwaySharp.ErrorHandling
         {
             return Bind(x => x, result);
         }
-        
+
         /// <summary>
-        /// If the wrapped function is a success and the given result is a success the function is applied on the value. 
+        /// If the wrapped function is a success and the given result is a success the function is applied on the value.
         /// Otherwise, the existing error messages are propagated.
         /// </summary>
 #if ERRH_ENABLE_INLINE_METHODS
@@ -394,7 +394,7 @@ namespace RailwaySharp.ErrorHandling
         {
             return Lift(Enumerable.Reverse,
                 xs.Aggregate<Result<TSuccess, TMessage>, Result<IEnumerable<TSuccess>, TMessage>, Result<IEnumerable<TSuccess>, TMessage>>(
-                null, 
+                null,
                 (result, next) => {
                     if (result.Tag == ResultType.Ok && next.Tag == ResultType.Ok) {
                         var ok1 = (Ok<IEnumerable<TSuccess>, TMessage>)result;
@@ -416,7 +416,7 @@ namespace RailwaySharp.ErrorHandling
                     }
 
                     var bad1 = (Bad<IEnumerable<TSuccess>, TMessage>)result;
-                    var bad2 = (Bad<TSuccess, TMessage>)next;            
+                    var bad2 = (Bad<TSuccess, TMessage>)next;
                     return new Bad<IEnumerable<TSuccess>, TMessage>(bad1.Messages.Concat(bad2.Messages));
                 }, x => x));
         }
@@ -603,7 +603,7 @@ namespace RailwaySharp.ErrorHandling
         }
 
         /// <summary>
-        /// Returns messages in case of success, otherwise an empty sequence. 
+        /// Returns messages in case of success, otherwise an empty sequence.
         /// </summary>
         public static IEnumerable<TMessage> SuccessMessages<TSuccess, TMessage>(this Result<TSuccess, TMessage> result)
         {

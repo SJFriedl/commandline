@@ -34,7 +34,7 @@ namespace CommandLine.Text
         }
 
         /// <summary>
-        /// An empty object used for initialization. 
+        /// An empty object used for initialization.
         /// </summary>
         public static HeadingInfo Empty => new(string.Empty);
 

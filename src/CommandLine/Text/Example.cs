@@ -48,7 +48,7 @@ namespace CommandLine.Text
         }
 
         /// <summary>
-        /// Example description. 
+        /// Example description.
         /// </summary>
         public string HelpText { get; }
 

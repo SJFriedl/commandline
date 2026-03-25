@@ -27,15 +27,15 @@ namespace CommandLine.Text
         /// </summary>
         /// <param name="columnWidth">The number of characters we can use for text</param>
         /// <remarks>
-        /// This method attempts to wrap text without breaking words 
+        /// This method attempts to wrap text without breaking words
         /// For example, if columnWidth is 10 , the input
         /// "a string for wrapping 01234567890123"
         /// would return
         /// "a string
-        /// "for 
+        /// "for
         /// "wrapping
         /// "0123456789
-        /// "0123"          
+        /// "0123"
         /// </remarks>
         /// <returns>this</returns>
         public TextWrapper WordWrap(int columnWidth)
@@ -123,24 +123,24 @@ namespace CommandLine.Text
         {
             //The current indentation level is based on the previous line, but we need to be careful
             var previousLine = lines.LastOrDefault()?.ToString() ??string.Empty;
-            
+
             var wouldWrap = !lines.Any() || (word.Length>0 && previousLine.Length + word.Length > columnWidth);
-          
+
             if (!wouldWrap)
             {
                 //The usual case is we just append the 'word' and a space to the current line
-                //Note that trailing spaces will get removed later when we turn the line list 
+                //Note that trailing spaces will get removed later when we turn the line list
                 //into a single string
                 lines.Last().Append(word + ' ');
             }
             else
             {
                 //The 'while' here is to take account of the possibility of someone providing a word
-                //which just can't fit in the current column.  In that case we just split it at the 
+                //which just can't fit in the current column.  In that case we just split it at the
                 //column end.
                 //That's a rare case though - most of the time we'll succeed in a single pass without
                 //having to split
-                //Note that we always do at least one pass even if the 'word' is empty in order to 
+                //Note that we always do at least one pass even if the 'word' is empty in order to
                 //honour sub-indentation and extra spaces within strings
                 do
                 {
@@ -158,8 +158,8 @@ namespace CommandLine.Text
         /// </summary>
         private static string RightString(string str,int n)
         {
-            return (n >= str.Length || str.Length==0) 
-                ? string.Empty 
+            return (n >= str.Length || str.Length==0)
+                ? string.Empty
                 : str[n..];
         }
 
@@ -169,7 +169,7 @@ namespace CommandLine.Text
         private static string LeftString(string str,int n)
         {
             return  (n >= str.Length || str.Length==0)
-                ? str 
+                ? str
                 : str[..n];
         }
     }

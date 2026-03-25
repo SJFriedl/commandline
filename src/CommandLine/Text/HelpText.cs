@@ -112,7 +112,7 @@ namespace CommandLine.Text
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CommandLine.Text.HelpText"/> class 
+        /// Initializes a new instance of the <see cref="CommandLine.Text.HelpText"/> class
         /// specifying the sentence builder.
         /// </summary>
         /// <param name="sentenceBuilder">
@@ -539,7 +539,7 @@ namespace CommandLine.Text
         /// </summary>
         /// <param name="maximumLength">The maximum length of the help screen.</param>
         /// <param name="result">A parsing computation result.</param>
-        /// <exception cref="System.ArgumentNullException">Thrown when parameter <paramref name="result"/> is null.</exception>    
+        /// <exception cref="System.ArgumentNullException">Thrown when parameter <paramref name="result"/> is null.</exception>
         public HelpText AddOptions<T>(int maximumLength, ParserResult<T> result)
         {
             if (result == null) throw new ArgumentNullException(nameof(result));
@@ -933,7 +933,7 @@ namespace CommandLine.Text
                 optionHelpText = "({0}: {1}) ".FormatInvariant(optionGroupWord, optionGroupSpecification.Group) + optionHelpText;
             }
 
-            //note that we need to indent trim the start of the string because it's going to be 
+            //note that we need to indent trim the start of the string because it's going to be
             //appended to an existing line that is as long as the indent-level
             var indented = TextWrapper.WrapAndIndentText(optionHelpText, maxLength + TotalOptionPadding, widthOfHelpText).TrimStart();
 
@@ -1077,8 +1077,5 @@ namespace CommandLine.Text
                 ? builder.ToString(0, builder.Length - 1)
                 : string.Empty;
         }
-
-
-
     }
 }

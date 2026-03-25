@@ -29,7 +29,7 @@ C:\Project> NuGet Install CommandLineParser
 
 # Nightly Build
 
-Nightly version of the CommandLineParser can be downloaded from github [Releases](https://github.com/commandlineparser/commandline/releases). 
+Nightly version of the CommandLineParser can be downloaded from github [Releases](https://github.com/commandlineparser/commandline/releases).
 
 The Last new features and fixes, read [changelog](https://github.com/commandlineparser/commandline/blob/master/CHANGELOG.md)
 
@@ -131,7 +131,7 @@ class Options
 	Default = false,
 	HelpText = "Prints all messages to standard output.")]
   public bool Verbose { get; set; }
-  
+
   [Option("stdin",
 	Default = false,
 	HelpText = "Read from stdin")]
@@ -220,7 +220,7 @@ End Sub
 
 ## For verbs:
 
-1. Create separate option classes for each verb.  An options base class is supported.  
+1. Create separate option classes for each verb.  An options base class is supported.
 2. Call ParseArguments with all the verb attribute decorated options classes.
 3. Use MapResult to direct program flow to the verb that was parsed.
 
@@ -326,9 +326,9 @@ let main args =
 See the [changelog](CHANGELOG.md)
 
 # Contributors
-First off, _Thank you!_  All contributions are welcome.  
+First off, _Thank you!_  All contributions are welcome.
 
-Please consider sticking with the GNU getopt standard for command line parsing.  
+Please consider sticking with the GNU getopt standard for command line parsing.
 
 Additionally, for easiest diff compares, please follow the project's tabs settings.  Utilizing the EditorConfig extension for Visual Studio/your favorite IDE is recommended.
 
@@ -359,6 +359,6 @@ __And most importantly, please target the ```develop``` branch in your pull requ
 - Eric Newton
   - ericnewton76+commandlineparser AT gmail DOT com
   - GitHub: [ericnewton76](https://github.com/ericnewton76)
-  - Blog: 
+  - Blog:
   - Twitter: [enorl76](http://twitter.com/enorl76)
-- Moh-Hassan 
+- Moh-Hassan

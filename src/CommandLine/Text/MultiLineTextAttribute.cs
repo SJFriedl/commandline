@@ -134,7 +134,7 @@ namespace CommandLine.Text
 
         internal HelpText AddToHelpText(HelpText helpText, bool before)
         {
-            // before flag only distinguishes which action is called, 
+            // before flag only distinguishes which action is called,
             // so refactor common code and call with appropriate func
             return before
                 ? AddToHelpText(helpText, helpText.AddPreOptionsLine)
