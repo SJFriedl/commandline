@@ -47,6 +47,8 @@ namespace CommandLine.Core
             return from type in types
                    let attrs = type.GetTypeInfo().GetCustomAttributes(typeof(VerbAttribute), true).ToArray()
                    where attrs.Length == 1
+                   let verb = FromAttribute((VerbAttribute)attrs.Single())
+                   orderby verb.Name
                    select Tuple.Create(
                        FromAttribute((VerbAttribute)attrs.Single()),
                        type);
