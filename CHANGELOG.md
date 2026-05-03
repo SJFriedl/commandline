@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 CommandLineParser project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.9.6] 2026-03-25
+- helptext sorts Verbs alphabetically if no verb provided
+
 ## [2.9.5] 2026-03-17
 
 ###
