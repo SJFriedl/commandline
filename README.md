@@ -17,6 +17,27 @@ point to ensure that this README.md is not lying.
 Do not enable `GeneratePackageOnBuild` - it interferes with expected behavior of `dotnet pack -c Release`
 after a clean build and caused missing-output packaging failures.
 
+The intention is to push the built results to a local NuGet feed (a directory) that can be
+consumed by other projects; we use something like \Dev\NuGetFeed
+
+# SETTING THIS UP ON A NEW MACHINE (Unixwiz version)
+
+* create a NuGet Feed area
+
+PS> mkdir C:\dev\NuGetFeed
+PS> dotnet nuget add source C:\Dev\NuGetFeed --name LocalDevFeed
+
+Now this area is available within Visual Studio as a nuget source (no restart/refresh required)
+
+* publish a build
+
+In the top-level directory (where the `.sln` file is), run:
+
+PS> dotnet pack -c Release -o C:\Dev\NuGetFeed
+
+This publishes the proper files to the local feed
+
+
 # Command Line Parser Library for CLR and NetStandard
 
 **Note:** the API surface has changed since v1.9.x and earlier. If you are looking for documentation on v1.9.x, please see [stable-1.9.71.2](https://github.com/gsscoder/commandline/tree/stable-1.9.71.2)
